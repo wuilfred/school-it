@@ -1,0 +1,48 @@
+div{
+  .user-container{
+    display: flex;
+    justify-content: center;
+    background: #f6faff;
+    padding: 2em 0;
+    .user{
+      display: flex;
+      align-items: center;
+      img{
+        border-radius: 50%;
+        width: 110px;
+        height: 110px;
+        object-fit: cover;
+        box-shadow: 0 0 6px black;
+      }
+      .user-info{
+        h4, p{
+          color: #5279d6;
+          margin: 0 !important;
+        }
+        h4{
+          font-weight: bold;
+          font-size: 1.2em;
+        }
+      }
+    }
+  }
+}
+.options-container{
+  display: flex;
+  justify-content: center;
+  .options{
+    width: 500px;
+    .option{
+      display: flex;
+      justify-content: space-around;
+      align-items: baseline;
+      a{
+        text-decoration: none;
+        background-color: #5279d6;
+        color: white;
+        border-radius: 20px;
+        padding: 0.1em 0.8em;
+      }
+    }
+  }
+}

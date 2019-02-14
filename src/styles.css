@@ -1,0 +1,184 @@
+/* You can add global styles to this file, and also import other style files */
+@import url(~@angular/material/prebuilt-themes/deeppurple-amber.css);
+mat-toolbar {
+  background: #5279d6 !important;
+  color: white !important; }
+
+.center {
+  margin: 0 auto; }
+
+.bluee {
+  color: #86ade6; }
+  .bluee:hover {
+    color: #0D47A1 !important;
+    transition: color 0.3s ease; }
+
+* {
+  font-family: 'Lato', sans-serif; }
+
+/* Ripple effect */
+.ripple {
+  background-position: center !important;
+  transition: background 0.8s !important; }
+
+.ripple:hover {
+  opacity: 0.9;
+  transition: opacity 1s; }
+
+.ripple:active {
+  background-color: #86ade4 !important;
+  background-size: 100% !important;
+  transition: background 0s !important; }
+
+.effect {
+  border: none !important;
+  cursor: pointer !important;
+  outline: none !important; }
+
+.shadow {
+  box-shadow: 0 0 4px #999; }
+
+.login {
+  background-color: #86ade6;
+  background-image: url("assets/img/Nube.svg");
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.anim {
+  margin: 0.4em 0;
+  padding: 0.4em 0.8em;
+  border-radius: 11px; }
+
+.anim:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s; }
+
+.anim:active {
+  background-color: rgba(255, 255, 255, 0.2);
+  background-size: 100% !important;
+  transition: background 0s !important; }
+
+.modal-border .mat-dialog-container {
+  max-width: 399px;
+  border-radius: 22px;
+  padding-bottom: 0 !important; }
+
+.modal-color1 .mat-dialog-container {
+  background-color: #86ade6 !important; }
+
+.collapsible-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  align-content: center; }
+  .collapsible-header .header-header img {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    background-size: cover; }
+  .collapsible-header .header-header p {
+    padding: 0 0.6em;
+    display: inline-block; }
+  .collapsible-header .header-f {
+    align-self: center; }
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between; }
+  mat-toolbar i {
+    font-size: 0.9em;
+    padding: 0 0.5em; }
+
+.some-padding {
+  padding: 1em !important; }
+
+.mat-expansion-panel {
+  box-shadow: none !important; }
+
+.collapsible-body {
+  background: #e7f3ff !important; }
+
+.collapsible {
+  box-shadow: none !important;
+  border: none !important; }
+
+.some-padding {
+  padding: 1em; }
+
+.atag {
+  text-decoration: none !important;
+  color: #86ade6; }
+  .atag:hover {
+    color: #5279d6;
+    transition: color 0.3s ease; }
+
+.form a, .form button {
+  color: white;
+  max-width: 300px;
+  text-align: center; }
+  .form a.real-button, .form button.real-button {
+    max-width: 300px;
+    background: #5279d6;
+    padding: 0.7em 0.3em;
+    margin: 1em 0;
+    display: block;
+    width: 100%;
+    border-radius: 9px;
+    font-size: 1.1em; }
+.form .form-header {
+  text-align: center; }
+  .form .form-header h3 {
+    color: white !important; }
+.form .form-body {
+  padding: 1em;
+  text-align: center; }
+  .form .form-body input, .form .form-body select {
+    background-color: white !important;
+    border: none;
+    border-radius: 9px;
+    padding: 0.5em 0.4em;
+    width: 96%;
+    margin: 1em 0;
+    outline: none !important;
+    font-size: 1.1em; }
+  .form .form-body select {
+    width: 100% !important; }
+  .form .form-body textarea {
+    resize: none;
+    width: 95%;
+    border-radius: 11px;
+    padding: 0.5em;
+    font-size: 1.1em;
+    margin: 1em 0; }
+  .form .form-body .form-b {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    color: white;
+    align-items: center;
+    padding: 1em 0; }
+    .form .form-body .form-b .yes {
+      width: 25%;
+      color: white;
+      background-color: rgba(13, 71, 161, 0.6);
+      padding: 0.3em 0.5em;
+      border-radius: 11px; }
+
+.exp-body-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+
+body {
+  margin: 0 !important; }
+
+.search-pipe {
+  border-radius: 20px !important;
+  border: none !important;
+  padding: 0.4em 0.9em !important;
+  outline: none !important; }
+
+/*# sourceMappingURL=styles.css.map */

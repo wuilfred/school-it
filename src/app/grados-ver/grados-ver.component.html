@@ -1,0 +1,91 @@
+<mat-toolbar>
+    Grado
+    <div class="actions">
+        <i class="fas fa-plus" (click)="openDialog()"></i>
+        <i class="fas fa-pencil-alt" (click)="openDialogT()"></i>
+    </div>
+</mat-toolbar>
+<div class="some-padding">
+
+    <div class="colegio">
+        <ng-container *ngFor="let c of colegio">
+            <img src="{{ c.photo || 'assets/img/School_defult.jpg' }}" alt="" width="70px">
+            {{c.Nombre_comercial }}
+        </ng-container>
+    </div>
+
+    <mat-tab-group>
+        <mat-tab label="Alumnos">
+            <div class="" *ngIf="alumnos">
+                <div class="" *ngFor="let als of alumnos">
+                    <mat-card>
+                        {{als.nombre}}
+                    </mat-card>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Tareas">
+            <mat-accordion>
+                <ng-container *ngFor="let m of tareas">
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header collapsedHeight="5em" expandedHeight="6em">
+                            <mat-panel-title class="panel-title">
+                                <p>{{m.titulo}} </p>
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                <p>
+                                    <small> {{m.materia}}</small>
+                                </p>
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+
+                        <div class="exp-body">
+                            <div class="exp-body-header">
+                                <p>Por: {{m.creator}}</p>
+                                <p>Fecha de entrega {{m.fechaEntrega}}</p>
+                                <p>Valor: {{m.punteo}}.pts</p>
+                            </div>
+                            <p> {{ m.descripcion }}
+                            </p>
+                        </div>
+                    </mat-expansion-panel>
+                </ng-container>
+            </mat-accordion>
+        </mat-tab>
+        <mat-tab label="Diario">
+            <mat-accordion>
+                <ng-container *ngFor="let m of diarios">
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header collapsedHeight="5em" expandedHeight="6em">
+                            <mat-panel-title class="panel-title">
+                                <p>{{m.titulo}} </p>
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                <p>
+                                </p>
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+
+                        <div class="exp-body">
+                            <div class="exp-body-header">
+                                <p>Por: {{m.creator}}</p>
+                                <small>{{m.creado | date }}</small>
+                            </div>
+                            <p> {{ m.descripcion }}
+                            </p>
+                        </div>
+                    </mat-expansion-panel>
+                </ng-container>
+            </mat-accordion>
+        </mat-tab>
+        <!--- <mat-tab label="Profesores">
+            <div class="" *ngIf="master">
+                <div class="" *ngFor="let a of master">
+                    <mat-card>
+                        {{a.nombre}}
+                    </mat-card>
+                </div>
+            </div>
+        </mat-tab> --->
+    </mat-tab-group>
+</div>

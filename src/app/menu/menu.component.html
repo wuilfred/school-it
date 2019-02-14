@@ -1,0 +1,107 @@
+<!--<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <a routerLink="/" class="brand-logo"><img src="assets/img/schoolit-logo.svg" alt="" width="130"></a>
+    </div>
+  </nav>
+</div>
+<ul id="slide-out" class="sidenav sidenav-fixed">
+  <li><a routerLink="/maestros"><i class="fas fa-apple-alt"></i> Maestros</a></li>
+  <li><a routerLink="/grados" href=""><i class="fas fa-graduation-cap"></i> Grados</a></li>
+  <li><a routerLink="/alumnos"><i class="fas fa-child"></i> Alumnos</a></li>
+  <hr>
+  <li><a (click)="logout()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
+</ul>-->
+<div class="menu-container">
+    <mat-list *ngIf="user">
+        <div>
+            <div class="profile-container">
+                <img src="{{ user.Url_foto || 'assets/img/School_defult.jpg' }}" alt="">
+                <p class="text-b" routerLink="/profile/{{user.uid}}">
+                    {{ user.Correo }}
+                </p>
+            </div>
+        </div>
+        <ng-container *ngIf="(router.url == '/inicio' || !colegio) && user.Role != 'tutor'">
+            <mat-list-item routerLink="/inicio/">
+                <i class="fas fa-home"></i>
+                <p class="text-b">
+                    {{user.Role == 'colegio' ? 'Instituciones' : 'Inicio'}} {{grd}}
+                </p>
+            </mat-list-item>
+            <mat-list-item routerLink="/profile/{{user.uid}}">
+                <i class="fas fa-user"></i>
+                <p class="text-b">
+                    Perfil
+                </p>
+            </mat-list-item>
+        </ng-container>
+        <ng-container *ngIf="user.Role == 'colegio'">
+            <mat-list-item routerLink="/inicio/">
+                <i class="fas fa-home"></i>
+                <p class="text-b">
+                    Inicio {{grd}}
+                </p>
+            </mat-list-item>
+            <mat-list-item routerLink="/maestros" >
+                <i class="fas fa-apple-alt text-b"></i>
+                <p class="text-b">
+                    Maestros
+                </p>
+            </mat-list-item>
+            <mat-list-item routerLink="/grados">
+                <i class="fas fa-graduation-cap text-b"></i>
+                <p class="text-b">
+                    Grados
+                </p>
+            </mat-list-item>
+            <mat-list-item routerLink="/solicitudes">
+                <i class="fas fa-user-check text-b"></i>
+                <p class="text-b">
+                    Solicitudes
+                </p>
+            </mat-list-item>
+            <mat-list-item routerLink="/alumnos">
+                <i class="fas fa-child text-b"></i>
+                <div class="text-b">
+                    Alumnos
+                </div>
+            </mat-list-item>
+            <mat-list-item routerLink="/materias">
+                <i class="fas fa-book-open"></i>
+                <div class="text-b">
+                    Materias
+                </div>
+            </mat-list-item>
+        </ng-container>
+        <ng-container *ngIf="user.Role == 'maestro' && router.url != '/inicio'">
+            <mat-list-item routerLink="/grados/list">
+                <i class="fas fa-graduation-cap text-b"></i>
+                <p class="text-b">
+                    Grados
+                </p>
+            </mat-list-item>
+            <mat-list-item routerLink="/solicitudes/sc">
+                <i class="fas fa-user-check text-b"></i>
+                <p class="text-b">
+                    Solicitudes
+                </p>
+            </mat-list-item>
+        </ng-container>
+        <ng-container *ngIf="user.Role == 'tutor' && router.url != '/inicio'">
+            <mat-list-item routerLink="/alumnos/list">
+                <i class="fas fa-child text-b"></i>
+                <p class="text-b">
+                    Mis Alumnos
+                </p>
+            </mat-list-item>
+        </ng-container>
+        <hr class="hr">
+        <mat-list-item (click)="logout()">
+            <i class="fas fa-sign-out-alt"></i>
+            <div class="text-b">
+                Cerrar Sesión
+            </div>
+        </mat-list-item>
+    </mat-list>
+</div>

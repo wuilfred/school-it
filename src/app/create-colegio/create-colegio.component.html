@@ -1,0 +1,23 @@
+<mat-toolbar>
+    <span><a routerLink="/" class="brand-logo"><img src="assets/img/schoolit-logo.svg" alt="" width="130"></a>
+</span>
+</mat-toolbar>
+<div class="some-padding bc-c sf login">
+  <div class="form-container center">
+    <div class="form">
+      <h3>Añadir Colegio</h3>
+      <input [(ngModel)]="Nombre" type="text" placeholder="Nombre Comercial" class="w100">
+      <input [(ngModel)]="NombreL" type="text" placeholder="Nombre Legal" class="w100">
+      <input [(ngModel)]="Direccion" type="text" placeholder="Direccion">
+      <input [(ngModel)]="Mail" type="email" placeholder="colegio@email.com">
+      <input [(ngModel)]="Site" placeholder="sitio web" class="w100">
+      <input [(ngModel)]="Telefono" type="text" placeholder="Numero de contacto">
+      <input [(ngModel)]="Horario" type="text" placeholder="Horario">
+      <input [(ngModel)]="Departamento" type="text" placeholder="Departamento">
+      <input [(ngModel)]="Municipio" type="text" placeholder="Municipio"><br>
+      <textarea [(ngModel)]="Mision" cols="10" rows="10" placeholder="Mision"></textarea>
+      <textarea [(ngModel)]="Vision" cols="10" rows="10" placeholder="Vision"></textarea>
+      <a (click)="createColegio()" class="real-button effect">Crear Colegio</a>
+    </div>
+  </div>
+</div>

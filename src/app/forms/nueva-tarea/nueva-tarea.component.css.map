@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,MAAM;EACJ,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,YAAY;EAC7B,aAAM;IACJ,YAAY,EAAE,GAAG;;AAInB,wDAAuB;EACrB,MAAM,EAAE,kBAAkB;;AAG9B,oBAAoB;EAClB,SAAS,EAAE,gBAAgB;EAC3B,aAAa,EAAE,eAAe",
+"sources": ["nueva-tarea.component.scss"],
+"names": [],
+"file": "nueva-tarea.component.css"
+}

@@ -1,0 +1,14 @@
+<div class="form">
+  <div class="form-header">
+    <h4>Agregar los datos de tu perfil:</h4>
+  </div>
+  <div class="form-body">	
+	<input type="text" placeholder="Descripcion" [(ngModel)]="descripcion" name="descripcion" />
+	<input type="text" placeholder="Direccion" [(ngModel)]="direccion" name="direccion" />
+	<input type="text" placeholder="Lema" [(ngModel)]="lema" name="lema" />
+	<input type="text" placeholder="Nit" [(ngModel)]="nit" name="nit" />
+	<input type="text" placeholder="Nombre" [(ngModel)]="nombre" name="nombre" />
+	<input type="text" placeholder="Zona" [(ngModel)]="zona" name="zona" />
+	<input type="button" value="Enviar" (click)="saveInformation();" />
+  </div>
+</div>

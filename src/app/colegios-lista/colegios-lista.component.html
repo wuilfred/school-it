@@ -1,0 +1,19 @@
+<mat-toolbar>
+  <span>Solicitudes</span>
+  <div class="actions">
+    <input class="search-pipe" type="text" placeholder="Buscar" *ngIf="show == true" [(ngModel)]="query">
+    <i class="fas fa-search" (click)="searchT()"></i>
+  </div>
+</mat-toolbar>
+<div class="some-padding">
+  <div class="colegio" *ngIf="colegio">
+    <ng-container *ngFor="let s of colegio">
+      <mat-card>
+        {{ s.Nombre_comercial }}
+        <div class="options">
+          <a (click)="verColegio(s)">Ver</a>
+        </div>
+      </mat-card>
+    </ng-container>
+  </div>
+</div>

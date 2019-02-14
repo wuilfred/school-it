@@ -1,0 +1,14 @@
+<div class="some-padding">
+    <div class="form">
+        <ng-container *ngIf="idm">
+            {{idm.apellido}}
+        </ng-container>
+        <select (change)="ert($event.target.value)">
+            <option value="" selected disabled>Grado</option>
+            <ng-container *ngFor="let g of grados">
+                <option value="{{g.id}}">{{g.nombre}}</option>
+            </ng-container>
+        </select>
+        <a (click)="AssignMG(iddd)" class="effect">Asignar</a>
+    </div>
+</div>

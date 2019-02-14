@@ -1,0 +1,21 @@
+<div class="form">
+    <div class="form-header">
+        <h3>Nueva Tarea</h3>
+    </div>
+    <div class="form-body">
+        <input type="text" [(ngModel)]="titulo" placeholder="Titulo" required>
+        <select name="" id="" class="w100" [(ngModel)]="materia" required>
+            <option selected disabled>Materia</option>
+            <ng-container *ngFor="let m of materias">
+                <option value="{{m.nombre}}">{{m.nombre}}</option>
+            </ng-container>
+        </select>
+        <input type="number" [(ngModel)]="punteo" placeholder="punteo" required min="0">
+        <input type="date" [(ngModel)]="fechaEntrega" required>
+        <textarea [(ngModel)]="descripcion" cols="30" rows="5" placeholder="Descripcion"></textarea>
+        <div class="form-b">
+            <a (click)="createTarea()" class="yes effect">Crear Tarea</a>
+            <a class="nope anim">Cancelar</a>
+        </div>
+    </div>
+</div>

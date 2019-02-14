@@ -1,0 +1,27 @@
+<mat-toolbar>
+    <span>{{title}}</span>
+    <div class="actions">
+        <!--- <input class="search-pipe" type="text" placeholder="Buscar" *ngIf="show == true" [(ngModel)]="query">
+        <i class="fas fa-search" (click)="searchT()"></i> -->
+        <i class="fas fa-plus" (click)="openDialog()"></i>
+    </div>
+</mat-toolbar>
+<div class="some-padding">
+    <mat-card *ngFor="let ty of alumnos">
+        <div class="user-s">
+            <div class="img-profile">
+                <img src="{{'assets/img/School_defult.jpg'}}" alt="" width="30">
+                <p class="bluee" routerLink="/alumno/profile/{{ty.id_tutor}}/{{ty.id_alumno}}">{{ty.nombre}} {{ty.apellido}} </p>
+                <p>
+                    <small> {{ty.role}}</small>
+                </p>
+            </div>
+        </div>
+
+        <div class="options">
+            <p *ngIf="!ty.id_colegio" (click)="asignarColegio(ty)">Asignar Colegio</p>
+            <p *ngIf="ty.id_colegio" routerLink="/alumno/grado/{{ty.id_colegio}}/{{ty.id_grado}}">ver</p>
+        </div>
+
+    </mat-card>
+</div>

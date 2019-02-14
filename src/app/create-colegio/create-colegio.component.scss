@@ -1,0 +1,45 @@
+.bc-c{
+  background-color: #86ade6;
+}
+.sf{
+  display: flex;
+  flex-direction: row;
+}
+.w100{
+  width: 100% !important;
+}
+.form{
+  padding: 1em;
+  width: 600px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  input{
+    width: 260px;
+    background-color: white !important;
+    border: none;
+    border-radius: 9px;
+    padding: 0.5em 0.4em;
+    margin: 0.6em;
+    outline: none !important;
+    font-size: 1.1em;
+  }
+  textarea{
+    width: 97%;
+    height: 150px;
+    resize: none;
+    font-size: 1.1em;
+    border-radius: 8px;
+    padding: 0.5em 0.4em;
+    margin: 0.5em;
+  }
+}
+.colegios-container{
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  .colegios{
+
+  }
+}

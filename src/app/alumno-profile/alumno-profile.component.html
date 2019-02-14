@@ -1,0 +1,27 @@
+<mat-toolbar class="app-toolbar">
+    <span>{{ title }}</span>
+</mat-toolbar>
+<div class="" *ngIf="user">
+    <div class="user-container">
+        <div class="user">
+            <img src="{{user.url_foto || 'assets/img/School_defult.jpg'}}">
+            <div class="user-info">
+                <h4>{{user.nombre}}</h4>
+                <p>Apellidos: {{user.apellido}}</p>
+                <p>Edad: {{user.edad}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="some-padding">
+        <div class="h">
+            <p>contacto tutor: {{user.nombret}} | {{user.correo}} | {{user.contacto_alm}}</p>
+        </div>
+        <div class="info">
+            <p><b>No. Seguro</b> {{user.numero_seguro}}</p>
+            <p><b>Seguro</b> {{user.seguro}}</p>
+            <p><b>Tipo Sanguineo</b> {{user.tipo_sangre}}</p>
+            <p><b>Alergias:</b> {{user.alergia}}</p>
+            <p><b>Nota:</b> {{user.nota}}</p>
+        </div>
+    </div>
+</div>

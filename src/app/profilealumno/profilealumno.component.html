@@ -1,0 +1,30 @@
+<mat-toolbar class="app-toolbar">
+    <span>{{ title }}</span>
+    <ng-container *ngIf="user">
+        <div class="options" *ngIf="user.id_colegio == uid">
+            <i class="fas fa-plus" *ngIf="user" (click)="openDialog(user)"></i>
+        </div>
+    </ng-container>
+</mat-toolbar>
+<div class="" *ngIf="user">
+    <div class="user-container">
+        <div class="user">
+            <img src="{{user.Url_foto || 'assets/img/School_defult.jpg'}}">
+            <div class="user-info">
+                <h4>{{user.Nombre}}</h4>
+                <p>Carnet: {{user.carnet}}</p>
+                <p>Apellidos: {{user.Apellido}}</p>
+                <p>Correo: {{user.Correo}}</p>
+                <p>Edad: {{user.edad}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="options-container">
+        <div class="options">
+            <div class="option">
+                <p>Aviso</p>
+                <a class="abtn" href="mailto:{{user.Correo}}">Enviar</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<mat-toolbar>
+    <span>{{ title }}</span>
+    <div class="actions">
+        <input class="search-pipe" type="text" placeholder="Buscar" *ngIf="show == true" [(ngModel)]="query">
+        <i class="fas fa-search effect" (click)="searchT()"></i>
+    </div>
+</mat-toolbar>
+<div class="solicitudes some-padding" *ngIf="solicitud">
+    <mat-card *ngFor="let ty of solicitud | search: query">
+        <div class="user-s">
+            <div class="img-profile">
+                <img src="{{'assets/img/School_defult.jpg'}}" alt="" width="30">
+                <h4>{{ty.nombre}} </h4>
+                <p><small>{{ty.role}}</small></p>
+            </div>
+        </div>
+
+        <div class="options">
+            <a (click)="assign(ty)">Aceptar </a>
+            <a (click)="delete(ty.id_user)"> Eliminar</a>
+        </div>
+
+    </mat-card>
+</div>

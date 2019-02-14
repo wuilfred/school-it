@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACE,sBAAK;EACH,KAAK,EAAE,eAAe",
+"sources": ["nuevo-diario.component.scss"],
+"names": [],
+"file": "nuevo-diario.component.css"
+}

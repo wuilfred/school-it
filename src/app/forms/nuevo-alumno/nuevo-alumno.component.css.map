@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACE,sBAAK;EACH,KAAK,EAAE,eAAe",
+"sources": ["nuevo-alumno.component.scss"],
+"names": [],
+"file": "nuevo-alumno.component.css"
+}

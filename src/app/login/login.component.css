@@ -1,0 +1,106 @@
+.nav-wrapper {
+  background: #5279d9 !important; }
+
+.form-container {
+  margin: 0 auto; }
+
+.ow-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white; }
+
+.formo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; }
+  .formo input {
+    width: auto !important; }
+  .formo h3 {
+    width: 100%; }
+  .formo textarea {
+    width: 419px;
+    resize: none;
+    font-size: 1.1em;
+    border-radius: 8px;
+    padding: 0.5em 0.4em;
+    margin: 0.5em 0; }
+
+.cregisters .registers-data-body {
+  color: white;
+  padding: 1em;
+  display: flex;
+  justify-content: center; }
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  align-items: center; }
+
+.box-users {
+  background-color: transparent; }
+  .box-users .boxes {
+    display: flex;
+    justify-content: normal;
+    cursor: initial;
+    color: white;
+    font-size: 1.3em;
+    padding: 0.5em; }
+  .box-users i {
+    width: 2em;
+    margin-right: 0.3em; }
+
+.form {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 4em 0; }
+  .form img {
+    padding: 1em 0; }
+  .form input {
+    max-width: 300px;
+    background-color: white !important;
+    border: none;
+    border-radius: 9px;
+    padding: 0.5em 0.4em;
+    width: 100%;
+    margin: 1em 0;
+    outline: none !important;
+    font-size: 1.1em; }
+  .form a, .form button {
+    color: white;
+    max-width: 300px; }
+    .form a.real-button, .form button.real-button {
+      max-width: 300px;
+      background: #5279d6;
+      padding: 0.7em 0.3em;
+      margin: 1em 0;
+      display: block;
+      width: 100%;
+      border-radius: 9px;
+      font-size: 1.1em; }
+
+.form-ow {
+  max-width: 600px; }
+  .form-ow input {
+    margin: 0.5em; }
+
+.formsss {
+  margin-bottom: 6.6em;
+  padding-bottom: 3em; }
+
+.form-o {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center; }
+
+.height {
+  height: 100vh; }
+
+/*# sourceMappingURL=login.component.css.map */

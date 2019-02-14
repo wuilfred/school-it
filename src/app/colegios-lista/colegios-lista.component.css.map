@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,QAAQ;EACN,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,aAAa;EAC9B,WAAW,EAAE,MAAM;EACnB,MAAM,EAAE,KAAK;EACb,aAAa,EAAE,MAAM",
+"sources": ["colegios-lista.component.scss"],
+"names": [],
+"file": "colegios-lista.component.css"
+}

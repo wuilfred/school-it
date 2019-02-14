@@ -1,0 +1,16 @@
+.specs{
+  display: flex;
+  justify-content: space-evenly;
+  select{
+    margin-right: 1em;
+  }
+}
+.form-body{
+  input, select, textarea{
+    margin: 0.3em 0 !important;
+  }
+}
+mat-dialog-container{
+  max-width: 299px !important;
+  border-radius: 22px !important;
+}

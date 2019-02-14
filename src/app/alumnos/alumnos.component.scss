@@ -1,0 +1,17 @@
+.alumnos-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .alumno{
+    margin: 0.6em;
+    text-align: center;
+    min-width: 130px;
+    max-width: 130px;
+    .alumno-header{
+      img{
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+<mat-toolbar>
+    <span>{{ title }}</span>
+    <div class="actions">
+        <i class="fas fa-plus" *ngIf="user" (click)="openDialog(user)"></i>
+    </div>
+</mat-toolbar>
+<div class="">
+    <div *ngIf="user">
+        <div class="user-container">
+            <div class="profile-container">
+                <div class="profile">
+                    <img src="{{user.foto_perfil || 'assets/img/School_defult.jpg'}}" alt="" width="60">
+                    <div class="profile-info">
+                        <h4>{{user.Nombre}} {{user.Apellidos}}</h4>
+                        <p>Docente</p>
+                        <p>{{user.Correo}}</p>
+                        <p>{{user.Telefono}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="permisos-container">
+                <div class="permisos">
+                    <h4>Permisos:</h4>
+                    <div class="switch">
+                        <label class="ti" for="calendario">Calendario </label>
+                        <label>
+                            <mat-slide-toggle (change)="updateAviso()" type="checkbox" id="calendario"
+                                              [(ngModel)]="user.permiso_tarea"></mat-slide-toggle>
+                            <span class="lever"></span>
+                        </label>
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div class="switch">
+                        <label class="ti" for="diario">Diario </label>
+                        <label>
+                            <mat-slide-toggle (change)="updateAviso()" type="checkbox" id="diario"
+                                              [(ngModel)]="user.permiso_diario"></mat-slide-toggle>
+                            <span class="lever"></span>
+                        </label>
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div class="switch">
+                        <label class="ti" for="aviso">Avisos </label>
+                        <label>
+                            <mat-slide-toggle (change)="updateAviso()" type="checkbox" id="aviso"
+                                              [(ngModel)]="user.permiso_aviso"></mat-slide-toggle>
+                            <span class="lever"></span>
+                        </label>
+                    </div>
+                    <div class="grados">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

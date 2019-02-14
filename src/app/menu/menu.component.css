@@ -1,0 +1,40 @@
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .profile-container img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%; }
+
+.nav-wrapper {
+  background: #5279d6 !important; }
+
+.hr {
+  width: 90%; }
+
+.sidenav {
+  background: #86ade6 !important;
+  color: white !important; }
+  .sidenav li a {
+    color: white; }
+    .sidenav li a i {
+      color: white;
+      font-size: 1.3em; }
+
+.menu-container {
+  background: #86ade6 !important;
+  height: 100%;
+  min-width: 200px; }
+
+.text-b {
+  color: white !important; }
+
+.fas {
+  position: relative;
+  margin-right: 1em;
+  width: 1.4em;
+  color: white; }
+
+/*# sourceMappingURL=menu.component.css.map */

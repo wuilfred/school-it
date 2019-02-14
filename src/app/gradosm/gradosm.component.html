@@ -1,0 +1,13 @@
+<mat-toolbar>
+    Grados
+</mat-toolbar>
+<div class="some-padding" *ngIf="grado">
+    <ng-container *ngFor="let g of grado">
+        <mat-card>
+            <a>{{g.nombreGrado}}</a>
+            <div class="options">
+                <a routerLink="/grados/ver/{{g.id_representante}}/{{g.id_grado}}">ver</a>
+            </div>
+        </mat-card>
+    </ng-container>
+</div>

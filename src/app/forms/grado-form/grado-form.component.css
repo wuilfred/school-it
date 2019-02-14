@@ -1,0 +1,16 @@
+.form .form-header {
+  text-align: center; }
+.form .form-body {
+  padding: 1em;
+  text-align: center; }
+  .form .form-body input {
+    background-color: white !important;
+    border: none;
+    border-radius: 9px;
+    padding: 0.5em 0.4em;
+    width: 96%;
+    margin: 1em 0;
+    outline: none !important;
+    font-size: 1.1em; }
+
+/*# sourceMappingURL=grado-form.component.css.map */

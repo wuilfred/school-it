@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,kBAAkB;EAChB,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;EACnB,SAAS,EAAE,IAAI;EACf,0BAAO;IACL,MAAM,EAAE,KAAK;IACb,UAAU,EAAE,MAAM;IAClB,SAAS,EAAE,KAAK;IAChB,SAAS,EAAE,KAAK;IAEd,6CAAG;MACD,UAAU,EAAE,KAAK;MACjB,aAAa,EAAE,GAAG",
+"sources": ["alumnos.component.scss"],
+"names": [],
+"file": "alumnos.component.css"
+}

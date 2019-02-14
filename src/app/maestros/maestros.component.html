@@ -1,0 +1,57 @@
+<!-- <div class="maestros-container" >
+    <ul class="collapsible">
+        <ng-container *ngFor="let m of maestros">
+            <li>
+                <div class="collapsible-header">
+                    <div class="header-header valign-wrapper" onclick="collapsible();">
+                        <img src="{{m.foto_perfil}}" alt="" height="60" width="80">
+                        <p><a routerLink="/maestros/profile/{{m.id_settings}}">{{ m.nombre }} {{ m.apellidos }}</a>
+                            <br><small>Docente</small>
+                        </p>
+                    </div>
+                    <div class="header-f valign-wrapper">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div class="collapsible-body">
+                    <i class="far fa-address-book"></i> {{ m.correo }}
+                </div>
+            </li>
+        </ng-container>
+    </ul>
+</div>-->
+<mat-toolbar>
+    <span>{{ title }}</span>
+    <div class="actions">
+        <input class="search-pipe" type="text" placeholder="Buscar maestro" *ngIf="show == true" [(ngModel)]="query">
+        <i class="fas fa-search effect" (click)="searchT()"></i>
+    </div>
+</mat-toolbar>
+<div class="some-padding">
+    <mat-accordion *ngIf="maestros">
+        <ng-container *ngFor="let m of maestros | search: query ">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header collapsedHeight="5em" expandedHeight="6em">
+                        <mat-panel-title class="panel-title">
+                            <img class="avatar" src="{{m.foto_perfil || 'assets/img/School_defult.jpg'}}" alt="" height="10" width="10">
+                            <p><a class="atag " routerLink="/maestros/profile/{{m.id_user}}">{{ m.nombre || 'User' }} {{ m.Apellido }}</a>
+                                <br><small>Docente</small>
+                            </p>
+                        </mat-panel-title>
+                        <mat-panel-description>
+
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+
+                    <i class="far fa-address-book"></i> {{ m.correo }} |
+                    <i class="fas fa-phone"></i> {{ m.telefono }}
+                </mat-expansion-panel>
+        </ng-container>
+    </mat-accordion>
+    <ng-container *ngIf="maestros?.length < 1 && query">
+        No hay resultados
+    </ng-container>
+    <ng-container *ngIf="maestros?.length < 1 && !query">
+        Realiza una busqueda para comenzar
+    </ng-container>
+</div>

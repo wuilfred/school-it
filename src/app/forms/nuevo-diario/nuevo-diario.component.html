@@ -1,0 +1,13 @@
+<div class="form">
+  <div class="form-header">
+    Nuevo Diario
+  </div>
+  <div class="form-body">
+    <input type="text" [(ngModel)]="titulo" placeholder="Titulo" required>
+    <textarea [(ngModel)]="descripcion" cols="30" rows="10" placeholder="Descripcion"></textarea>
+    <div class="form-b">
+      <a (click)="createDiario()" class="yes">Crear</a>
+      <a class="nope">Cancelar</a>
+    </div>
+  </div>
+</div>

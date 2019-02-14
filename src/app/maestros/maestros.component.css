@@ -1,0 +1,34 @@
+.panel-title img {
+  height: 40px;
+  width: 40px;
+  align-self: center;
+  margin-right: 1em;
+  border-radius: 50%; }
+
+.some-padding {
+  padding: 1em !important; }
+
+.mat-expansion-panel {
+  box-shadow: none !important; }
+
+mat-toolbar {
+  background: #5279d6 !important;
+  color: white; }
+
+.avatar {
+  object-fit: cover; }
+
+/*.far, .fas{
+  font-size: 1.7em;
+  color: #5279d6;
+  width: 20px;
+  height: 20px;
+}*/
+mat-toolbar {
+  display: flex;
+  justify-content: space-between; }
+  mat-toolbar i {
+    font-size: 0.9em;
+    padding: 0 0.5em; }
+
+/*# sourceMappingURL=maestros.component.css.map */

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,QAAQ;EACN,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,aAAa;EAC9B,MAAM,EAAE,KAAK;EAEX,mBAAC;IACC,KAAK,EAAE,OAAO;IACd,eAAe,EAAE,IAAI",
+"sources": ["gradosm.component.scss"],
+"names": [],
+"file": "gradosm.component.css"
+}

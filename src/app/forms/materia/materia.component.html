@@ -1,0 +1,12 @@
+<div class="some-padding">
+  <div class="form">
+      <div class="form-header">
+          <h3>Materia</h3>
+      </div>
+      <div class="form-body">
+          <input type="text" [(ngModel)]="materia" placeholder="Materia" required>
+          <textarea [(ngModel)]="descripcion" cols="30" rows="10" placeholder="Descripcion" required></textarea>
+          <a (click)="createM()" class="effect">Crear</a>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,102 @@
+<mat-toolbar>
+    <span><a routerLink="/" class="brand-logo"><img src="assets/img/schoolit-logo.svg" alt="" width="130"></a>
+</span>
+</mat-toolbar>
+<div class="login valign-wrapper" [ngClass]="{'height': operation != 'register'}">
+    <div class="container form-container">
+        <div class="form col s2">
+           <img src="assets/img/schoolit-logo.svg" alt="" width="170">
+            <div *ngIf="operation == 'login'" class="login-container">
+                <input [(ngModel)]="email" type="email" placeholder="Email">
+                <input [(ngModel)]="password" type="password" placeholder="Contraseña">
+                <a (click)="login()" class="real-button effect shadow ripple">Inicia Sesión</a>
+                <a (click)="operation = 'register'" class="effect anim">Registrarse</a>
+                <a (click)="recoverPass();" class="effect anim">Olvide mi contraseña</a>
+            </div>
+            <div *ngIf="operation == 'register'" class="formsss">
+                <div class="cregisters">
+                    <div class="registers-header">
+                    </div>
+                    <div class="registers-data-body">
+                        <div class="box-users" *ngIf="selected == true">
+                            <h4>Soy...</h4>
+                            <div class="boxes effect anim" matRipple="" (click)="selected = false; am = true; n = true"><i class="fas fa-graduation-cap"></i>Tutor</div>
+                            <div class="boxes effect anim" (click)="n = true; selected = false; ma = true"><i class="fas fa-chalkboard-teacher"></i>Maestro</div>
+                            <div class="boxes effect anim" (click)="n = true; selected = false; ow = true"><i class="fas fa-school"></i>Institución</div>
+                        </div>
+                        <div *ngIf="n" (click)="selected = true; n = false; am = false; ma = false; ow = false;" class="effect anim">Cambiar</div>
+                    </div>
+                </div>
+                <ng-container *ngIf="ow == true">
+                    <div class="ow-form">
+                        <h3>Institucion</h3>
+                        <div class="formo">
+                            <div class="form-ow">
+                                <input [(ngModel)]="email" type="email" placeholder="tu@email.com">
+                                <input [(ngModel)]="password" type="password" placeholder="Password">
+                                <input [(ngModel)]="Nombre" type="text" placeholder="Nombre">
+                                <input [(ngModel)]="Apellido" type="text" placeholder="Apellido">
+                                <input [(ngModel)]="departamento" type="text" placeholder="Departamento">
+                                <input [(ngModel)]="municipio" type="text" placeholder="Municipio">
+                                <input [(ngModel)]="nit" type="text" placeholder="Nit">
+                                <input [(ngModel)]="dpi" type="text" placeholder="Dpi">
+                                <input [(ngModel)]="telefono" type="text" placeholder="Telefono">
+                            </div>
+                            <!--<h4>Tu colegio</h4>
+                            <input [(ngModel)]="cEmail" type="email" placeholder="colegio@email.com">
+                            <input [(ngModel)]="cNombre" type="text" placeholder="Nombre Comercial">
+                            <input [(ngModel)]="cNombreL" type="text" placeholder="Nombre Legal">
+                            <input [(ngModel)]="cTelefono" type="text" placeholder="Numero de contacto">
+                            <input [(ngModel)]="cDireccion" type="text" placeholder="Direccion">
+                            <input [(ngModel)]="cHorario" type="text" placeholder="Horario">
+                            <input [(ngModel)]="cDepartamento" type="text" placeholder="Departamento">
+                            <input [(ngModel)]="cMunicipio" type="text" placeholder="Municipio"><br>
+                            <textarea [(ngModel)]="cMision" cols="30" rows="10" placeholder="Mision"></textarea>
+                            <textarea [(ngModel)]="cVision" cols="30" rows="10" placeholder="Vision"></textarea>
+                            <input [(ngModel)]="cSite" placeholder="sitio web"> -->
+                        </div>
+                        <a (click)="createUser();" class="real-button effect">Registrarse</a>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="ma == true">
+                    <div class="ow-form">
+                        <h4>Maestro</h4>
+                        <div class="formo">
+                            <div class="form-ow">
+                                <input [(ngModel)]="email" type="email" placeholder="tu@email.com">
+                                <input [(ngModel)]="password" type="password" placeholder="Password">
+                                <input [(ngModel)]="Nombre" type="text" placeholder="Nombre">
+                                <input [(ngModel)]="Apellido" type="text" placeholder="Apellido">
+                                <input [(ngModel)]="telefono" type="text" placeholder="Telefono">
+                                <input [(ngModel)]="departamento" type="text" placeholder="Departamento">
+                                <input [(ngModel)]="municipio" type="text" placeholder="Municipio">
+                                <input [(ngModel)]="dpi" type="text" placeholder="Dpi">
+                                <input [(ngModel)]="profesion" type="text" placeholder="Profesión">
+                                <textarea [(ngModel)]="frase" cols="30" rows="10" placeholder="Frase"></textarea>
+                            </div>
+                        </div>
+                        <a (click)="createM();" class="real-button effect">Registrarse</a>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="am == true">
+                    <div class="ow-form">
+                        <div class="formo">
+                            <div class="form-ow">
+                                <input [(ngModel)]="email" type="email" placeholder="tu@email.com">
+                                <input [(ngModel)]="password" type="password" placeholder="Password">
+                                <input [(ngModel)]="Nombre" type="text" placeholder="Nombre">
+                                <input [(ngModel)]="Apellido" type="text" placeholder="Apellido">
+                                <input [(ngModel)]="telefono" type="text" placeholder="Telefono">
+                                <input [(ngModel)]="departamento" type="text" placeholder="Departamento">
+                                <input [(ngModel)]="municipio" type="text" placeholder="Municipio">
+                                <input [(ngModel)]="dpi" type="text" placeholder="Dpi">
+                            </div>
+                        </div>
+                        <a (click)="createT();" class="real-button effect">Registrarse</a>
+                    </div>
+                </ng-container>
+                <a (click)="operation = 'login'" class="effect anim">¿Ya tienes cuenta? Incia Sesión</a>
+            </div>
+        </div>
+    </div>
+</div>

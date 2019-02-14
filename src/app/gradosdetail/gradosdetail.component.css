@@ -1,0 +1,22 @@
+.some-padding {
+  padding: 1em; }
+
+.tareas-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 1em 0; }
+  .tareas-container .tarea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #E7F3FF;
+    width: 120px;
+    padding: 1em;
+    border-radius: 11%; }
+    .tareas-container .tarea hr {
+      width: 90%; }
+
+/*# sourceMappingURL=gradosdetail.component.css.map */

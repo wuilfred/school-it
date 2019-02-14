@@ -1,0 +1,14 @@
+.specs {
+  display: flex;
+  justify-content: space-evenly; }
+  .specs select {
+    margin-right: 1em; }
+
+.form-body input, .form-body select, .form-body textarea {
+  margin: 0.3em 0 !important; }
+
+mat-dialog-container {
+  max-width: 299px !important;
+  border-radius: 22px !important; }
+
+/*# sourceMappingURL=nueva-tarea.component.css.map */

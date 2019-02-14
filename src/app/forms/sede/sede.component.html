@@ -1,0 +1,24 @@
+<mat-toolbar>
+    <span><a routerLink="/" class="brand-logo"><img src="assets/img/schoolit-logo.svg" alt="" width="130"></a>
+</span>
+</mat-toolbar>
+<div class="some-padding bc-c sf login">
+  <div class="form-container center">
+    <div class="form">
+      <h3>Añadir Sede</h3>
+  
+    <div class="form-body">
+      <input [(ngModel)]="nombre"       type="text" placeholder="Nombre"          name="nombre"  />
+      <input [(ngModel)]="departamento" type="text" placeholder="Departamento"    name="departamento" />
+      <input [(ngModel)]="municipio"    type="text" placeholder="Municipio"       name="municipio"/>
+      <input [(ngModel)]="zona"         type="text" placeholder="Zona"            name="zona"/>
+      <input [(ngModel)]="direccion"    type="text"  placeholder="Direccion"      name="direccion" />
+      <input [(ngModel)]="telefono"     type="number" placeholder="Telefono"      name="telefono"/>
+      <input [(ngModel)]="correo"       type="email" placeholder="colegio@email.com" name="correo"/>
+      <input [(ngModel)]="horario"      type="datetime" placeholder="Horario"     name="horario"/>
+      <input [(ngModel)]="status"       type="combobox" placeholder="activo"      name="status"/>
+      <a (click)="createSede()" class="real-button effect">Crear Sede</a>
+    </div>
+  </div>
+</div>
+</div>
