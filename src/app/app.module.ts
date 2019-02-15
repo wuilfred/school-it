@@ -54,6 +54,8 @@ import { NuevoAvisoComponent } from './forms/nuevo-aviso/nuevo-aviso.component';
 import { userRecoverPassForm } from './forms/recover-pass/recover-pass.component';
 import { AddInfoFormComponent } from './forms/add-information/add-information.component';
 import { SedeComponent } from './forms/sede/sede.component';
+import { SeccionesComponent } from './secciones/secciones.component';
+import { SeccionFormComponent } from './forms/seccion-form/seccion-form.component';
 
 const appRoutes: Routes = [
     {path: 'inicio', component: InicioComponent, canActivate: [AuthenticationGuard]},
@@ -75,6 +77,7 @@ const appRoutes: Routes = [
     {path: 'colegios/list/:uid', component: ColegiosListaComponent, canActivate: [AuthenticationGuard]},
     {path: 'alumno/profile/:idt/:uid', component: AlumnoProfileComponent, canActivate: [AuthenticationGuard]},
 
+    {path: 'secciones', component: SeccionesComponent, canActivate: [AuthenticationGuard]},
 
     /////masters
     {path: 'grados/ver/:uid/:grd', component: GradosVerComponent, canActivate: [AuthenticationGuard]},
@@ -121,7 +124,9 @@ const appRoutes: Routes = [
     NuevoAvisoComponent,
     userRecoverPassForm,
     AddInfoFormComponent,
-    SedeComponent
+    SedeComponent,
+    SeccionesComponent,
+    SeccionFormComponent
   ],
   imports: [
     BrowserModule,
