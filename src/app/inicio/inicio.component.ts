@@ -55,12 +55,6 @@ export class InicioComponent implements OnInit {
                                 (colegio: Colegio[]) => {
                                     if (!user.hasOwnProperty('Nombre')) {
                                         //this.addInformation();
-                                        const dialogRef = this.dialog.open(SedeComponent, {
-                                            panelClass: ['modal-color1', 'modal-border'],
-                                        });
-                                        dialogRef.afterClosed().subscribe(result => {
-                                            console.log('closed');
-                                        });
                                     }
                                     this.colegio = colegio;
                                     console.log('colegios', this.colegio);
