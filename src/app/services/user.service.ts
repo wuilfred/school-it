@@ -29,6 +29,10 @@ export class UserService {
         return this.angularFireDb.object(`colegio/${school.id_representante}/${school.id}`).set(school);
     }
 
+    createSection(obj){
+        return this.angularFireDb.object(`colegio/${obj.id_school}`).set(obj);
+    }
+
     /* REMOVED: 05/02/2019 UNNECESSARY FUNCTION */
     // createSchoolList(school){
     //     return this.angularFireDb.object(`colegioList/${school.id}`).set(school);
