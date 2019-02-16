@@ -1,0 +1,12 @@
+.form-header {
+	color: white;
+	font-weight: bold;
+}
+.exp-body-header{
+  input {
+    width: auto !important;
+  }
+  input:nth-child(2n+0) {
+	margin-left: 6px;
+  }
+}

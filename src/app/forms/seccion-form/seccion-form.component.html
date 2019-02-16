@@ -1,3 +1,15 @@
-<p>
-  seccion-form works!
-</p>
+<div class="form">
+  <div class="form-header">
+      Nueva Sección
+  </div>
+  <div class="form-body">
+      <div class="exp-body-header">
+          <input type="text" [(ngModel)]="nombre" placeholder="Nombre">
+      </div>
+      <textarea [(ngModel)]="descripcion" placeholder="Descripción" cols="10" rows="4"></textarea>
+      <div class="form-b">
+          <a (click)="crearSeccion()" class="yes">Crear</a>
+          <a class="nope anim" (click)="close()">Cancelar</a>
+      </div>
+  </div>
+</div>

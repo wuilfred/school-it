@@ -1,0 +1,41 @@
+.collapsible-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  align-content: center; }
+  .collapsible-header .header-header img {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    background-size: cover; }
+  .collapsible-header .header-header p {
+    padding: 0 0.6em;
+    display: inline-block; }
+  .collapsible-header .header-f {
+    align-self: center; }
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between; }
+  mat-toolbar i {
+    font-size: 0.9em;
+    padding: 0 0.5em; }
+
+.some-padding {
+  padding: 1em !important; }
+
+.mat-expansion-panel {
+  box-shadow: none !important; }
+
+.collapsible-body {
+  background: #e7f3ff !important; }
+
+.collapsible {
+  box-shadow: none !important;
+  border: none !important; }
+
+.some-padding {
+  padding: 1em; }
+
+/*# sourceMappingURL=secciones.component.css.map */
