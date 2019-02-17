@@ -155,7 +155,9 @@ const appRoutes: Routes = [
       ColegioSolicitudComponent,
       userRecoverPassForm,
       AddInfoFormComponent,
-      SedeComponent
+      SedeComponent,
+      SeccionesComponent,
+      SeccionFormComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -54,10 +54,16 @@ export class InicioComponent implements OnInit {
                             this.userService.getColegioo(user.uid).valueChanges().subscribe(
                                 (colegio: Colegio[]) => {
                                     if (!user.hasOwnProperty('Nombre')) {
-                                        //this.addInformation();
+                                        this.addInformation();
+                                        /*const dialogRef = this.dialog.open(SedeComponent, {
+                                            panelClass: ['modal-color1', 'modal-border'],
+                                        });
+                                        dialogRef.afterClosed().subscribe(result => {
+                                            console.log('closed');
+                                        });*/
                                     }
                                     this.colegio = colegio;
-                                    console.log('colegios', this.colegio);
+                                    //console.log('colegios', this.colegio);
                                     /*this.userService.getSede(user.uid).valueChanges().subscribe(
                                         (sede: Sede[]) => {
                                             this.sede = sede;
