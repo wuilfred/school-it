@@ -80,6 +80,7 @@ export class MaestrosComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.searchT();
     }
     ngOnDestroy(){
         ///this.colid.unsubscribe();

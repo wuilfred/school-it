@@ -35,7 +35,7 @@ export class NuevaTareaComponent implements OnInit {
                     }
                 );
                 this.subm = this.userService.getMaterias(this.data.uid).valueChanges().subscribe(
-                    (materias)=>{
+                    (materias) => {
                         console.log(materias);
                         this.materias = materias;
                     }
@@ -44,7 +44,7 @@ export class NuevaTareaComponent implements OnInit {
         );
     }
 
-    createTarea(){
+    createTarea() {
         const tarea = {
             'titulo': this.titulo,
             'materia': this.materia,
@@ -58,7 +58,7 @@ export class NuevaTareaComponent implements OnInit {
             'timestamp' : Date.now()
         };
         this.userService.createTarea(tarea).then(
-            (tarea)=>{
+            (tarea) => {
                 console.log('tarea hecha');
                 this.dialog.closeAll();
             }
