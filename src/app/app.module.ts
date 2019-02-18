@@ -56,6 +56,7 @@ import { AddInfoFormComponent } from './forms/add-information/add-information.co
 import { SedeComponent } from './forms/sede/sede.component';
 import { SeccionesComponent } from './secciones/secciones.component';
 import { SeccionFormComponent } from './forms/seccion-form/seccion-form.component';
+import { NuevatareaComponent } from './nuevatarea/nuevatarea.component';
 
 const appRoutes: Routes = [
     {path: 'inicio', component: InicioComponent, canActivate: [AuthenticationGuard]},
@@ -126,7 +127,8 @@ const appRoutes: Routes = [
     AddInfoFormComponent,
     SedeComponent,
     SeccionesComponent,
-    SeccionFormComponent
+    SeccionFormComponent,
+    NuevatareaComponent
   ],
   imports: [
     BrowserModule,
