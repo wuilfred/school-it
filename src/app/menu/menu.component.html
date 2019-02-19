@@ -29,6 +29,14 @@
                     {{user.Role == 'colegio' ? 'Instituciones' : 'Inicio'}} {{grd}}
                 </p>
             </mat-list-item>
+            <ng-container *ngIf="user.Role == 'colegio'">
+                <mat-list-item routerLink="/sede">
+                    <i class="fas fa=iser"></i>
+                    <p class="text-b">
+                        Sedes
+                    </p>
+                </mat-list-item>
+            </ng-container>
             <mat-list-item routerLink="/profile/{{user.uid}}">
                 <i class="fas fa-user"></i>
                 <p class="text-b">
@@ -53,6 +61,18 @@
                 <i class="fas fa-graduation-cap text-b"></i>
                 <p class="text-b">
                     Grados
+                </p>
+            </mat-list-item>
+            <mat-list-item routerLink="/tareas">
+                <i class="fas fa-graduation-cap text-b"></i>
+                <p class="text-b">
+                    Tareas
+                </p>
+            </mat-list-item>
+            <mat-list-item routerLink="/diario">
+                <i class="fas fa-graduation-cap text-b"></i>
+                <p class="text-b">
+                    Diario
                 </p>
             </mat-list-item>
             <mat-list-item routerLink="/secciones">

@@ -56,6 +56,9 @@ import { AddInfoFormComponent } from './forms/add-information/add-information.co
 import { SedeComponent } from './forms/sede/sede.component';
 import { SeccionesComponent } from './secciones/secciones.component';
 import { SeccionFormComponent } from './forms/seccion-form/seccion-form.component';
+import { TareasComponent } from './forms/tareas/tareas.component';
+import { DiarioComponent } from './forms/diario/diario.component';
+
 
 const appRoutes: Routes = [
     {path: 'inicio', component: InicioComponent, canActivate: [AuthenticationGuard]},
@@ -83,6 +86,10 @@ const appRoutes: Routes = [
     {path: 'grados/ver/:uid/:grd', component: GradosVerComponent, canActivate: [AuthenticationGuard]},
     {path: 'grados/list', component: GradosmComponent, canActivate: [AuthenticationGuard]},
     {path: 'solicitudes/sc', component: SolicitudesScComponent, canActivate: [AuthenticationGuard]},
+
+    {path: 'sede', component: SedeComponent, canActivate: [AuthenticationGuard]},
+    {path: 'tareas', component: TareasComponent, canActivate: [AuthenticationGuard]},
+    {path: 'diario', component: DiarioComponent, canActivate: [AuthenticationGuard]}
 ];
 
 @NgModule({
@@ -126,7 +133,9 @@ const appRoutes: Routes = [
     AddInfoFormComponent,
     SedeComponent,
     SeccionesComponent,
-    SeccionFormComponent
+    SeccionFormComponent,
+    TareasComponent,
+    DiarioComponent
   ],
   imports: [
     BrowserModule,
