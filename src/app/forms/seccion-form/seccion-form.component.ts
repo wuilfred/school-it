@@ -3,7 +3,6 @@ import {AuthenticationService} from "../../services/authentication.service";
 import {UserService} from "../../services/user.service";
 import {AngularFireDatabase} from "@angular/fire/database";
 import {MatDialog} from "@angular/material";
-import {Colegio} from "../../interfaces/colegio";
 
 @Component({
   selector: 'app-seccion-form',
@@ -25,32 +24,40 @@ export class SeccionFormComponent implements OnInit {
                 public dialog: MatDialog) {
         this.auth.getStatus().subscribe(
             (user)=>{
-                this.r = user.uid;
+                this.r = user;
+                this.userService.getColegioo(this.r.uid).valueChanges().subscribe(
+                    (colegio: any[])=>{
+                        colegio.forEach(
+                            (data)=>{
+                                this.colegio = data;
+                            }
+                        );
+                    }
+                );
 
             }
         );
     }
 
-    crearSeccion(){
+    createSection(){
         //create object for send it 
         const section = {
             Descripcion:this.descripcion
-            ,Id_colegio:''
-            ,Id_representante:this.r
-            ,Id_usuario:this.r
+            ,Id_colegio: this.colegio.id
+            ,Id_representante:this.r.uid
+            ,Id_usuario:this.r.uid
             ,Nombre:this.nombre
             ,Status:this.status
-            ,Timestamp: ''
+            ,Timestamp: Date.now()
         }
-
+        
         this.userService.createSection(section).then(
             (data) => {
-                
-                //this.router.navigate(['inicio']);
+                this.dialog.closeAll();
             }
         ).catch(
             error =>{
-                console.log(`error al crear colegio ${error}`);
+                console.log(`error al crear secciones ${error}`);
             }
         );
 

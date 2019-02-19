@@ -56,9 +56,9 @@ import { AddInfoFormComponent } from './forms/add-information/add-information.co
 import { SedeComponent } from './forms/sede/sede.component';
 import { SeccionesComponent } from './secciones/secciones.component';
 import { SeccionFormComponent } from './forms/seccion-form/seccion-form.component';
+import { NuevatareaComponent } from './nuevatarea/nuevatarea.component';
 import { TareasComponent } from './forms/tareas/tareas.component';
-import { DiarioComponent } from './forms/diario/diario.component';
-
+import { DiarioComponent } from './forms/diario/diario.component'
 
 const appRoutes: Routes = [
     {path: 'inicio', component: InicioComponent, canActivate: [AuthenticationGuard]},
@@ -134,6 +134,7 @@ const appRoutes: Routes = [
     SedeComponent,
     SeccionesComponent,
     SeccionFormComponent,
+    NuevatareaComponent
     TareasComponent,
     DiarioComponent
   ],
