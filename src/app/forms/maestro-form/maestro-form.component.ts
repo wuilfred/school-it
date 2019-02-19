@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MaestroFormComponent implements OnInit {
 
+  nombre:     string;
+  grado:      string;
+  edad:       string;
+  educacion:  string;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  createMaestro() {
+
   }
 
 }

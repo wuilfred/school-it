@@ -1,0 +1,21 @@
+<mat-toolbar>
+    <span><a routerLink="/" class="brand-logo"><img src="assets/img/schoolit-logo.svg" alt="" width="130"></a>
+</span>
+</mat-toolbar>
+<div class="some-padding bc-c sf login">
+  <div class="form-container center">
+    <div class="form">
+      <h3>Añadir Diario</h3>
+  
+    <div class="form-body">
+      <input [(ngModel)]="grado"      type="text"   placeholder="Grado"      name="grado"  />
+      <input [(ngModel)]="seccion"    type="text"   placeholder="Seccion"    name="seccion" />
+      <input [(ngModel)]="sede"       type="text"   placeholder="Sede"       name="sede"/>
+      <input [(ngModel)]="materia"    type="text"   placeholder="Materia"    name="materia"/>
+      <input [(ngModel)]="titulo"     type="text"   placeholder="Titulo"     name="titulo" />
+      <input [(ngModel)]="contenido"  type="number" placeholder="Contenido"  name="contenido"/>
+      <a (click)="createDiario()" class="real-button effect">Crear Diario</a>
+    </div>
+  </div>
+</div>
+</div> 

@@ -1,0 +1,26 @@
+<mat-toolbar>
+    <span><a routerLink="/" class="brand-logo"><img src="assets/img/schoolit-logo.svg" alt="" width="130"></a>
+</span>
+</mat-toolbar>
+<div class="some-padding bc-c sf login">
+  <div class="form-container center">
+    <div class="form">
+      <h3>Añadir Tarea</h3>
+  
+    <div class="form-body">
+      <input [(ngModel)]="grado"       type="text"    placeholder="Grado"         name="grado"  />
+      <input [(ngModel)]="seccion"     type="text"    placeholder="Seccion"       name="seccion" />
+      <input [(ngModel)]="sede"        type="text"    placeholder="Sede"          name="sede"/>
+      <input [(ngModel)]="materia"     type="text"    placeholder="Materia"       name="zona"/>
+      <input [(ngModel)]="titulo"      type="text"    placeholder="Titulo"        name="direccion" />
+      <input [(ngModel)]="contenido"   type="text"    placeholder="Contenido"     name="telefono"/>
+      <input [(ngModel)]="valor"       type="text"    placeholder="Valor"         name="correo"/>
+      <input [(ngModel)]="fecha_start" type="datetime" placeholder="Horario Inicio" name="horario"/>
+      <input [(ngModel)]="fecha_end"   type="datetime" placeholder="Horario final"  name="status"/>
+      <input [(ngModel)]="maestro"     type="text"    placeholder="maestro"       name="status"/>
+      <input [(ngModel)]="estado"      type="checkbox" placeholder="estado"       name="status"/>
+      <a (click)="createTarea()" class="real-button effect">Crear Tarea</a>
+    </div>
+  </div>
+</div>
+</div>
