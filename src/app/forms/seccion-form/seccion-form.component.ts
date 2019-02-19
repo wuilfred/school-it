@@ -30,6 +30,7 @@ export class SeccionFormComponent implements OnInit {
                         colegio.forEach(
                             (data)=>{
                                 this.colegio = data;
+                                console.log('colegio '+this.colegio.id);
                             }
                         );
                     }
@@ -42,6 +43,7 @@ export class SeccionFormComponent implements OnInit {
     createSection(){
         //create object for send it 
         const section = {
+            id:this.db.createPushId(),
             Descripcion:this.descripcion
             ,Id_colegio: this.colegio.id
             ,Id_representante:this.r.uid
