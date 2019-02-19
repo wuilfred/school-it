@@ -134,7 +134,7 @@ const appRoutes: Routes = [
     SedeComponent,
     SeccionesComponent,
     SeccionFormComponent,
-    NuevatareaComponent
+    NuevatareaComponent,
     TareasComponent,
     DiarioComponent
   ],
