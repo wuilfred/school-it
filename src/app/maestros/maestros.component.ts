@@ -41,10 +41,17 @@ export class MaestrosComponent implements OnInit {
                         );
                     }
                 );*/
-                this.colid = this.maestroService.getMasters(user.uid).valueChanges().subscribe(
-                    (master: Maestro[]) => {
-                        console.log(master);
-                        this.maestros = master;
+
+                this.maestroService.checkIdSchool().then(response => {
+                        this.colid = this.maestroService.getMasters(response).valueChanges().subscribe(
+                            (master: Maestro[]) => {
+                                console.log('hola esto es maestros', master);
+                                this.maestros = master;
+                            }
+                        );
+                    },
+                    (err) => {
+                        console.log('Erro is institucion', err);
                     }
                 );
             }
