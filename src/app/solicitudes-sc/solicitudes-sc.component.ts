@@ -39,7 +39,7 @@ export class SolicitudesScComponent implements OnInit {
                         if(role.Tipo = 'maestro'){
                             this.sService.getMm(user.uid).valueChanges().subscribe(
                                 (userr: Maestro) => {
-                                    console.log(`role ${userr}`);
+                                    console.log(`role`, userr);
                                     this.idM = userr.uid;
                                     this.roleM = userr.role;
                                     const nom = [userr.nombre, userr.apellido];

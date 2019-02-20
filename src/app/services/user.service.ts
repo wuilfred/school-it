@@ -43,10 +43,10 @@ export class UserService {
     }
 
     getSchoolList(){
-        return this.angularFireDb.list(`colegioList`);
+        return this.angularFireDb.list(`colegio`);
     }
     getSc(id){
-        return this.angularFireDb.object(`colegioList/${id}`);
+        return this.angularFireDb.object(`colegio/${id}`);
     }
 
     createMaster(master){
@@ -222,6 +222,20 @@ export class UserService {
     /**/
     updateInformation (data) {
         return this.angularFireDb.object(`maestros/${data.uid}`).set(data);
+    }
+
+    checkIdSchool () {
+        let myItem = localStorage.getItem('idinstitucion');
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              if (myItem) {
+                resolve(myItem);
+              } else {  
+                alert('No haz seleccionado una institucion');
+               reject();
+              }
+            }, 1000);
+        });
     }
 
 }
