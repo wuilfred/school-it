@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { SeccionFormComponent } from '../forms/seccion-form/seccion-form.component'
 import {MatDialog} from "@angular/material";
 import {AuthenticationService} from "../services/authentication.service";
+import { ColegioSolicitudComponent } from '../forms/colegio-solicitud/colegio-solicitud.component';
 
 @Component({
   selector: 'app-secciones',
@@ -12,6 +13,7 @@ export class SeccionesComponent implements OnInit {
   title: string = 'Secciones';
   show: boolean;
   query;
+  @Input() colegio : SeccionFormComponent;
 
   constructor(
     private authService: AuthenticationService,
@@ -38,6 +40,8 @@ export class SeccionesComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("la variable del componente"+this.colegio)
+    
   }
 
 }

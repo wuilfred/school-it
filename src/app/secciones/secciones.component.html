@@ -7,24 +7,21 @@
   </div>
 </mat-toolbar>
 <div class="some-padding">
-  <mat-accordion>
-      <ng-container *ngFor="let m of grados | search: query">
-          <mat-expansion-panel>
-              <mat-expansion-panel-header collapsedHeight="5em" expandedHeight="6em">
-                  <mat-panel-title class="panel-title">
-                      <a routerLink="/grados/detail/{{m.id}}" class="atag"><p>{{ m.nombre }}
-                          <br>
-                      </p></a>
-                  </mat-panel-title>
-                  <mat-panel-description>
-
-                  </mat-panel-description>
-              </mat-expansion-panel-header>
-
-              <div class="exp-body">
-                  Descripcion: {{ m.descripcion }}
-              </div>
-          </mat-expansion-panel>
-      </ng-container>
-  </mat-accordion>
+        <div class="mas">
+            <ng-container *ngIf="secciones">
+                <ng-container *ngFor="let c of secciones">
+                    <mat-card class="card">
+                            <mat-card-content (click)="replaceComercial(c);">
+                                <mat-card-title> {{c.Nombre}}</mat-card-title>
+                                <mat-card-subtitle> {{c.Descripcion}} </mat-card-subtitle>
+                            </mat-card-content>
+                    </mat-card>
+                </ng-container>
+            </ng-container>
+            <ng-container *ngIf="secciones === undefined || !secciones.length">
+                    <div class="inicio-container">
+                    No hay secciones creadas
+                </div>
+            </ng-container>
+        </div>
 </div>
