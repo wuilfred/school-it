@@ -1,8 +1,10 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { SeccionFormComponent } from '../forms/seccion-form/seccion-form.component'
-import {MatDialog} from "@angular/material";
-import {AuthenticationService} from "../services/authentication.service";
+import { MatDialog } from "@angular/material";
+import { AuthenticationService } from "../services/authentication.service";
 import { ColegioSolicitudComponent } from '../forms/colegio-solicitud/colegio-solicitud.component';
+import { UserService } from "../services/user.service";
+import { Seccion } from "../interfaces/seccion";
 
 @Component({
   selector: 'app-secciones',
@@ -13,12 +15,26 @@ export class SeccionesComponent implements OnInit {
   title: string = 'Secciones';
   show: boolean;
   query;
-  @Input() colegio : SeccionFormComponent;
+  secciones:Seccion[];
+  colid;
 
   constructor(
     private authService: AuthenticationService,
-    public dialog: MatDialog
-  ) { }
+    public dialog: MatDialog,
+    private userService : UserService
+  ) { 
+      this.authService.getStatus().subscribe(
+        (user) => {
+            this.colid = this.userService.getSection(user.uid).valueChanges().subscribe(
+                (seccion: Seccion[]) => {
+                    this.secciones = seccion;
+                }
+            );
+            console.log("Usuario"+user.uid);
+        }
+      );
+      console.log("Variable de secciones"+this.secciones);
+  }
 
   searchT() {
     this.show = !this.show;
@@ -40,8 +56,12 @@ export class SeccionesComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("la variable del componente"+this.colegio)
+    console.log("la variable del componente")
     
+  }
+
+  information(obj){
+    console.log(obj);
   }
 
 }

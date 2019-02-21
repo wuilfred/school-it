@@ -30,7 +30,7 @@ export class UserService {
     }
 
     createSection(obj){
-        return this.angularFireDb.object(`seccion/${obj.Id_colegio}/${obj.id}`).set(obj);
+        return this.angularFireDb.object(`seccion/${obj.Id_representante}/${obj.id}`).set(obj);
     }
 
     getSection(uid){

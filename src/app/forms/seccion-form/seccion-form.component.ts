@@ -31,7 +31,6 @@ export class SeccionFormComponent implements OnInit {
                         colegio.forEach(
                             (data)=>{
                                 this.colegio = data;
-                                console.log('colegio '+this.colegio.id);
                             }
                         );
                     }

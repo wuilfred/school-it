@@ -11,7 +11,7 @@
             <ng-container *ngIf="secciones">
                 <ng-container *ngFor="let c of secciones">
                     <mat-card class="card">
-                            <mat-card-content (click)="replaceComercial(c);">
+                            <mat-card-content (click)="information(c);">
                                 <mat-card-title> {{c.Nombre}}</mat-card-title>
                                 <mat-card-subtitle> {{c.Descripcion}} </mat-card-subtitle>
                             </mat-card-content>
