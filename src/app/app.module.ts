@@ -32,6 +32,7 @@ import { GradoFormComponent } from './forms/grado-form/grado-form.component';
 import { MaestroFormComponent } from './forms/maestro-form/maestro-form.component';
 import { AlumnoFormComponent } from './forms/alumno-form/alumno-form.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
+import { SchoolProfileComponent } from './colegio-profile/colegio-profile.component';
 import { ChooseSchComponent } from './forms/choose-sch/choose-sch.component';
 import { SolicitudesComponent } from './solicitudes/solicitudes.component';
 import { CreateColegioComponent } from './create-colegio/create-colegio.component';
@@ -70,6 +71,7 @@ const appRoutes: Routes = [
     {path: 'alumnos', component: AlumnosComponent, canActivate: [AuthenticationGuard]},
     {path: 'instituciones', component: CreateColegioComponent, canActivate: [AuthenticationGuard]},
     {path: 'profile/:uid', component: MyProfileComponent, canActivate: [AuthenticationGuard]},
+    {path: 'profileinst/:uid', component: SchoolProfileComponent, canActivate: [AuthenticationGuard]},
     {path: 'materias', component: MateriasComponent, canActivate: [AuthenticationGuard]},
     {path: 'alumnos/profile/:rep/:uid', component: ProfilealumnoComponent, canActivate: [AuthenticationGuard]},
     {path: 'login', component: LoginComponent},
@@ -135,7 +137,8 @@ const appRoutes: Routes = [
     SeccionesComponent,
     SeccionFormComponent,
     TareasComponent,
-    DiarioComponent
+    DiarioComponent,
+    SchoolProfileComponent
   ],
   imports: [
     BrowserModule,

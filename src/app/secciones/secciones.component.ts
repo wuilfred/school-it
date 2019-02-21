@@ -12,6 +12,7 @@ export class SeccionesComponent implements OnInit {
   title: string = 'Secciones';
   show: boolean;
   query;
+  grados: string;
 
   constructor(
     private authService: AuthenticationService,

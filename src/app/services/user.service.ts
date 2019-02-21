@@ -25,8 +25,9 @@ export class UserService {
         return this.angularFireDb.object(`materia/${obj.id_representante}/${obj.id}`).set(obj);
     }
 
+    // Remove ${school.id_representante}/
     createSchool(school){
-        return this.angularFireDb.object(`colegio/${school.id_representante}/${school.id}`).set(school);
+        return this.angularFireDb.object(`colegio/${school.Id}`).set(school);
     }
 
     createSection(obj){

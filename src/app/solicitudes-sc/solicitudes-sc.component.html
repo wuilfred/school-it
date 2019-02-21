@@ -9,7 +9,7 @@
     <div class="colegio" *ngIf="colegio">
         <ng-container *ngFor="let s of colegio | search: query">
             <mat-card>
-                {{ s.Nombre_comercial }}
+                {{ s.Nombre_comercial || s.nombre_comercial }}
                 <div class="options">
                     <a (click)="Solicitud(s)">Solicitar</a>
                 </div>

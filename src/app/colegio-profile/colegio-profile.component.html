@@ -1,0 +1,20 @@
+<mat-toolbar>
+  <span>{{ title }}</span>
+</mat-toolbar>
+<div class="">
+  <div *ngIf="user">
+    <div class="user-container">
+      <div class="profile-container">
+        <div class="profile">
+          <img src='{{user.Url_foto}}' alt="" width="60">
+          <div class="profile-info">
+            <h4>{{user.Nombre}} {{user.Apellido}}</h4>
+            <p>{{user.Correo}}</p>
+            <p>{{user.Telefono}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

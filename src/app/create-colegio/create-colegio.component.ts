@@ -36,8 +36,8 @@ export class CreateColegioComponent implements OnInit {
 
     createColegio(){
         const colegio = {
-            id: this.db.createPushId(),
-            id_representante: this.u,
+            Id: this.db.createPushId(),
+            Id_representante: this.u,
             Nombre_legal: this.Nombre,
             Nombre_comercial: this.NombreL,
             Correo: this.Mail,
