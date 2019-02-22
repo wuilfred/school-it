@@ -2,7 +2,6 @@ import { Component, OnInit,Input } from '@angular/core';
 import { SeccionFormComponent } from '../forms/seccion-form/seccion-form.component'
 import { MatDialog } from "@angular/material";
 import { AuthenticationService } from "../services/authentication.service";
-import { ColegioSolicitudComponent } from '../forms/colegio-solicitud/colegio-solicitud.component';
 import { UserService } from "../services/user.service";
 import { Seccion } from "../interfaces/seccion";
 
