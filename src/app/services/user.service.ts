@@ -69,6 +69,15 @@ export class UserService {
     getColegios(uid){
         return this.angularFireDb.list(`colegio/${uid}`);
     }
+
+    /**
+     * @returns object colegios
+     * @param uid 
+     */
+    getColegioInfo(uid){
+        return this.angularFireDb.object(`colegio/${uid}`);
+    }
+
     createSolicitud(avi){
         return this.angularFireDb.object(`solicitud/${avi.id_representante}/${avi.id_user}`).set(avi);
     }

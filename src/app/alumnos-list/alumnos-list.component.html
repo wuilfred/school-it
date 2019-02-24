@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar class="app-toolbar">
     <span>{{title}}</span>
     <div class="actions">
         <!--- <input class="search-pipe" type="text" placeholder="Buscar" *ngIf="show == true" [(ngModel)]="query">
@@ -6,7 +6,7 @@
         <i class="fas fa-plus" (click)="openDialog()"></i>
     </div>
 </mat-toolbar>
-<div class="some-padding">
+<div class="app-toolbar">
     <mat-card *ngFor="let ty of alumnos">
         <div class="user-s">
             <div class="img-profile">

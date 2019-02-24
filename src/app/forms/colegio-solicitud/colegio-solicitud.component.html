@@ -6,7 +6,7 @@
     <select [(ngModel)]="colegio">
       <option selected disabled>Elegir Colegio</option>
       <ng-container *ngFor="let sch of school">
-        <option value="{{sch.id}}">{{sch.Nombre_comercial}}</option>
+        <option value="{{sch.Id}}">{{sch.Nombre_comercial}}</option>
       </ng-container>
     </select>
     <a (click)="enviarSolicitud()" class="effect">Enviar Solicitud</a>
