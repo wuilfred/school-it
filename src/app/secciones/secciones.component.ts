@@ -59,7 +59,7 @@ export class SeccionesComponent implements OnInit {
     
   }
 
-  information(obj){
+  off(obj){
     console.log(obj);
   }
 

@@ -6,13 +6,15 @@
       <i class="fas fa-plus effect" (click)="openDialog()"></i>
   </div>
 </mat-toolbar>
-<div class="app-toolbar">
+<!--<div class="app-toolbar">
         <div class="mas">
             <ng-container *ngIf="secciones">
                 <ng-container *ngFor="let c of secciones">
                     <mat-card class="card">
                             <mat-card-content (click)="information(c);">
-                                <mat-card-title> {{c.Nombre}}</mat-card-title>
+                                <mat-card-title> {{c.Nombre}}
+                                    <p class="options">Deshabilitar</p>
+                                </mat-card-title>
                                 <mat-card-subtitle> {{c.Descripcion}} </mat-card-subtitle>
                             </mat-card-content>
                     </mat-card>
@@ -24,4 +26,18 @@
                 </div>
             </ng-container>
         </div>
+</div>-->
+
+<div class="app-toolbar some-padding" *ngIf="secciones">
+    <mat-card *ngFor="let ty of secciones | search: query">
+        <div class="user-s">
+            <div class="img-profile">
+                <h4>{{ty.Nombre}} </h4>
+                <!--<p><small>{{ty.Descripcion}}</small></p>-->
+            </div>
+        </div>
+        <div class="options">
+            <a (click)="off(ty)">Deshabilitar</a>
+        </div>
+    </mat-card>
 </div>
