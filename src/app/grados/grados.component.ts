@@ -23,9 +23,8 @@ export class GradosComponent implements OnInit {
     constructor(public userService: UserService,
                 private authService: AuthenticationService,
                 public dialog: MatDialog) {
-        this.authService.getStatus().subscribe(
-            (user) => {
-                this.colid = this.userService.getGrado(user.uid).valueChanges().subscribe(
+        this.userService.checkIdSchool().then(response => {
+                this.colid = this.userService.getGrado(response).valueChanges().subscribe(
                     (grado: Grados[]) => {
                         this.grados = grado;
                     }

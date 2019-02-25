@@ -28,23 +28,20 @@
                 <p class="text-b">
                     {{user.Role == 'colegio' ? 'Instituciones' : 'Inicio'}} {{grd}}
                 </p>
-            </mat-list-item>
-            <ng-container *ngIf="user.Role == 'colegio'">
-                <mat-list-item routerLink="/sede">
-                    <i class="fas fa=iser"></i>
-                    <p class="text-b">
-                        Sedes
-                    </p>
-                </mat-list-item>
-            </ng-container>
-            <mat-list-item routerLink="/profile/{{user.uid}}">
+            </mat-list-item>            <mat-list-item routerLink="/profile/{{user.uid}}">
                 <i class="fas fa-user"></i>
                 <p class="text-b">
                     Perfil
                 </p>
             </mat-list-item>
         </ng-container>
-        <ng-container *ngIf="user.Role == 'colegio'">
+        <ng-container *ngIf="user.Role == 'colegio' && router.url != '/inicio'">
+            <mat-list-item routerLink="/sede">
+                <i class="fas fa=iser"></i>
+                <p class="text-b">
+                    Sedes
+                </p>
+            </mat-list-item>
             <mat-list-item routerLink="/inicio/">
                 <i class="fas fa-home"></i>
                 <p class="text-b">

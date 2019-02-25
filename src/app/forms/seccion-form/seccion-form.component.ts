@@ -3,6 +3,7 @@ import {AuthenticationService} from "../../services/authentication.service";
 import {UserService} from "../../services/user.service";
 import {AngularFireDatabase} from "@angular/fire/database";
 import {MatDialog} from "@angular/material";
+import { ColegioSolicitudComponent } from '../colegio-solicitud/colegio-solicitud.component';
 
 @Component({
   selector: 'app-seccion-form',
@@ -30,7 +31,6 @@ export class SeccionFormComponent implements OnInit {
                         colegio.forEach(
                             (data)=>{
                                 this.colegio = data;
-                                console.log('colegio '+this.colegio.id);
                             }
                         );
                     }

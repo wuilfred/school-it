@@ -29,26 +29,30 @@ export class GradoFormComponent implements OnInit {
             (user) => {
                 this.user = user.uid;
                 this.uid = this.angularFireDb.createPushId();
-                const grd = {
-                    'nombre': this.nombre,
-                    'requisitos': this.req,
-                    'edad_maxima': this.edmx,
-                    'edad_minima': this.edmi,
-                    'descripcion': this.des,
-                    'id_representante': this.user,
-                    'id': this.uid,
-                };
-
-                this.userService.createGrado(grd).then(
-                    (data) => {
-                        console.log(`exito ${data}`);
-                        this.dialog.closeAll();
-                    }
-                ).catch(
-                    (error) => {
-                        console.log(`ocurrio un error ${error}`);
-                    }
-                );
+                this.userService.checkIdSchool().then(response => {
+                    const grd = {
+                        'Nombre': this.nombre,
+                        'Requisitos': this.req,
+                        'Edadmax': this.edmx,
+                        'Edadmin': this.edmi,
+                        'Descripcion': this.des,
+                        'Id_representante': this.user,
+                        'Id': this.uid,
+                        'Id_colegio': response,
+                        'Status': '1',
+                        'Timestamp': new Date().getTime()  
+                    };
+                    this.userService.createGrado(grd).then(
+                        (data) => {
+                            console.log(`exito ${data}`);
+                            this.dialog.closeAll();
+                        }
+                    ).catch(
+                        (error) => {
+                            console.log(`ocurrio un error ${error}`);
+                        }
+                    );
+                });
             }
         );
     }

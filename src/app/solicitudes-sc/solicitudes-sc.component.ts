@@ -42,7 +42,7 @@ export class SolicitudesScComponent implements OnInit {
                                 (userr: Maestro) => {
                                     console.log(`role`, userr);
                                     this.idM = userr.uid;
-                                    this.roleM = userr.Role;
+                                    this.roleM = role.Tipo; //userr.Role;
                                     const nom = [userr.nombre, userr.apellido];
                                     this.nombreM = nom.join(' ');
                                     const solicitud = {

@@ -31,7 +31,11 @@ export class UserService {
     }
 
     createSection(obj){
-        return this.angularFireDb.object(`seccion/${obj.id}`).set(obj);
+        return this.angularFireDb.object(`seccion/${obj.Id_representante}/${obj.id}`).set(obj);
+    }
+
+    getSection(uid){
+        return this.angularFireDb.list(`seccion/${uid}`);
     }
 
     /* REMOVED: 05/02/2019 UNNECESSARY FUNCTION */
@@ -61,10 +65,10 @@ export class UserService {
         ///return this.angularFireDb.object(`colegio/${uid.user}/${uid.s}`);
         return this.angularFireDb.list(`colegio/${uid}`);
 
-        ///return this.angularFireDb.list(`colegio/${uid}`, ref => ref.orderByChild('id_representante').equalTo(uid));
+        return this.angularFireDb.list(`colegio/`, ref => ref.orderByChild('id_representante').equalTo(uid));
     }
     getColegios(uid){
-        return this.angularFireDb.list(`colegio/${uid}`);
+        return this.angularFireDb.list(`colegio/`);
     }
     createSolicitud(avi){
         return this.angularFireDb.object(`solicitud/${avi.id_representante}/${avi.id_user}`).set(avi);
@@ -76,6 +80,9 @@ export class UserService {
 
     getUsersById(uid){
         return this.angularFireDb.object('/representante_colegio/'+uid);
+    }
+    getInstiById (uid) {
+        return this.angularFireDb.object('/colegio/'+uid);
     }
 
     getURole(uid){
@@ -115,7 +122,7 @@ export class UserService {
     }
 
     createGrado(grd){
-        return this.angularFireDb.object(`grado/${grd.id_representante}/${grd.id}`).set(grd);
+        return this.angularFireDb.object(`grado/${grd.Id_colegio}/${grd.Id}`).set(grd);
     }
 
     getUserByIdd(uid){
