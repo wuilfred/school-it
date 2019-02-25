@@ -25,8 +25,9 @@ export class UserService {
         return this.angularFireDb.object(`materia/${obj.id_representante}/${obj.id}`).set(obj);
     }
 
+    // Remove ${school.id_representante}/
     createSchool(school){
-        return this.angularFireDb.object(`colegio/${school.id_representante}/${school.id}`).set(school);
+        return this.angularFireDb.object(`colegio/${school.Id}`).set(school);
     }
 
     createSection(obj){
@@ -64,10 +65,10 @@ export class UserService {
         ///return this.angularFireDb.object(`colegio/${uid.user}/${uid.s}`);
         return this.angularFireDb.list(`colegio/${uid}`);
 
-        ///return this.angularFireDb.list(`colegio/${uid}`, ref => ref.orderByChild('id_representante').equalTo(uid));
+        return this.angularFireDb.list(`colegio/`, ref => ref.orderByChild('id_representante').equalTo(uid));
     }
     getColegios(uid){
-        return this.angularFireDb.list(`colegio/${uid}`);
+        return this.angularFireDb.list(`colegio/`);
     }
 
     /**
@@ -88,6 +89,9 @@ export class UserService {
 
     getUsersById(uid){
         return this.angularFireDb.object('/representante_colegio/'+uid);
+    }
+    getInstiById (uid) {
+        return this.angularFireDb.object('/colegio/'+uid);
     }
 
     getURole(uid){
@@ -127,7 +131,7 @@ export class UserService {
     }
 
     createGrado(grd){
-        return this.angularFireDb.object(`grado/${grd.id_representante}/${grd.id}`).set(grd);
+        return this.angularFireDb.object(`grado/${grd.Id_colegio}/${grd.Id}`).set(grd);
     }
 
     getUserByIdd(uid){

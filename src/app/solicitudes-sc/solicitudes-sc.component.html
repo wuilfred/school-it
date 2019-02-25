@@ -8,10 +8,11 @@
 <div class="some-padding">
     <div class="colegio" *ngIf="colegio">
         <ng-container *ngFor="let s of colegio | search: query">
-            <mat-card>
-                {{ s.Nombre_comercial }}
+            <mat-card> 
+                {{ s.Nombre_comercial || s.nombre_comercial }}
                 <div class="options">
-                    <a (click)="Solicitud(s)">Solicitar</a>
+                    
+                    <button (click)="Solicitud(s)" mat-button>Solicitar</button>
                 </div>
             </mat-card>
         </ng-container>

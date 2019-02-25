@@ -20,6 +20,7 @@ export class SolicitudesScComponent implements OnInit {
     title;
     roleM;
     idM;
+    query: string = '';
 
 
     constructor(private sService: UserService, private auth: AuthenticationService) {
@@ -41,16 +42,17 @@ export class SolicitudesScComponent implements OnInit {
                                 (userr: Maestro) => {
                                     console.log(`role`, userr);
                                     this.idM = userr.uid;
-                                    this.roleM = userr.role;
+                                    this.roleM = role.Tipo; //userr.Role;
                                     const nom = [userr.nombre, userr.apellido];
                                     this.nombreM = nom.join(' ');
                                     const solicitud = {
                                         'id_user' : user.uid,
                                         'nombre' : this.nombreM,
-                                        'id_colegio' : s.id,
-                                        'id_representante': s.id_representante,
+                                        'id_colegio' : s.Id,
+                                        'id_representante': s.Id_representante,
                                         'role' : this.roleM
                                     }
+                                    console.log('Data solicitud', solicitud);
                                     this.sService.createSolicitud(solicitud).then(
                                         (solicitudd)=>{
                                             console.log('todo bien todo correcto');
@@ -65,8 +67,13 @@ export class SolicitudesScComponent implements OnInit {
         );
     }
 
-    searchT(){
-
+    searchT() {
+        this.show = !this.show;
+        if (this.show) {
+            this.show = true;
+        } else {
+            this.show = false;
+        }
     }
 
     ngOnInit() {

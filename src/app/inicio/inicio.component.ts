@@ -74,9 +74,13 @@ export class InicioComponent implements OnInit {
                                         (colegio: Colegio[]) => {
                                             // if (colegio.length == 0) {
                                             //     this.router.navigate(['instituciones']);
-                                            // }
+                                            // } 
                                             console.log(`colegios: ${colegio.length}`);
-                                            this.cols = colegio;
+                                            console.log('JEJE', user);
+                                            this.cols = this.colegio = colegio.filter(obj => {
+                                                console.log('data', obj);
+                                              return true;
+                                            });
                                         }
                                     );
                                 }
@@ -95,11 +99,11 @@ export class InicioComponent implements OnInit {
     replaceComercial (id): void {
         this.authService.getStatus().subscribe(
             (user) => {
-            this.dataService.institucionId = id.id;
+            this.dataService.institucionId = id.Id;
             const key = 'idinstitucion';
-            localStorage.setItem(key, id.id);
-            console.log('New id is: ' , this.dataService.institucionId);
-            this.router.navigate(['profile/' + user.uid]);
+            localStorage.setItem(key, id.Id);
+            console.log('New id is: ' , id);
+            this.router.navigate(['profileinst/' + id.Id]);
         });
     }
 
