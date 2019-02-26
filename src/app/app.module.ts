@@ -59,6 +59,7 @@ import { SeccionesComponent } from './secciones/secciones.component';
 import { SeccionFormComponent } from './forms/seccion-form/seccion-form.component';
 import { TareasComponent } from './forms/tareas/tareas.component';
 import { DiarioComponent } from './forms/diario/diario.component';
+import { DisableSectionComponent } from './forms/disable-section/disable-section.component';
 
 const appRoutes: Routes = [
     {path: 'inicio', component: InicioComponent, canActivate: [AuthenticationGuard]},
@@ -138,7 +139,8 @@ const appRoutes: Routes = [
     SeccionFormComponent,
     TareasComponent,
     DiarioComponent,
-    SchoolProfileComponent
+    SchoolProfileComponent,
+    DisableSectionComponent
   ],
   imports: [
     BrowserModule,
@@ -169,7 +171,8 @@ const appRoutes: Routes = [
       AddInfoFormComponent,
       SedeComponent,
       SeccionesComponent,
-      SeccionFormComponent
+      SeccionFormComponent,
+      DisableSectionComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

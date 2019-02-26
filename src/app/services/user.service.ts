@@ -31,11 +31,15 @@ export class UserService {
     }
 
     createSection(obj){
-        return this.angularFireDb.object(`seccion/${obj.Id_representante}/${obj.id}`).set(obj);
+        return this.angularFireDb.object(`seccion/${obj.Id_colegio}/${obj.Id}`).set(obj);
     }
 
     getSection(uid){
-        return this.angularFireDb.list(`seccion/${uid}`);
+        return this.angularFireDb.list(`seccion/${uid}`, ref => ref.orderByChild('Status').equalTo(1));
+    }
+
+    updateSection(obj){
+        return this.angularFireDb.object(`seccion/${obj.Id_colegio}/${obj.Id}`).update({Status: obj.Status});
     }
 
     /* REMOVED: 05/02/2019 UNNECESSARY FUNCTION */

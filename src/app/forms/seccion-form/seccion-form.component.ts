@@ -26,7 +26,7 @@ export class SeccionFormComponent implements OnInit {
         this.auth.getStatus().subscribe(
             (user)=>{
                 this.r = user;
-                this.userService.getColegioo(this.r.uid).valueChanges().subscribe(
+                /*this.userService.getColegioo(this.r.uid).valueChanges().subscribe(
                     (colegio: any[])=>{
                         colegio.forEach(
                             (data)=>{
@@ -34,8 +34,10 @@ export class SeccionFormComponent implements OnInit {
                             }
                         );
                     }
-                );
-
+                );*/
+                this.userService.checkIdSchool().then(response => {
+                    this.colegio = response;  
+                });    
             }
         );
     }
@@ -43,9 +45,9 @@ export class SeccionFormComponent implements OnInit {
     createSection(){
         //create object for send it 
         const section = {
-            id:this.db.createPushId(),
+            Id:this.db.createPushId(),
             Descripcion:this.descripcion
-            ,Id_colegio: this.colegio.id
+            ,Id_colegio: this.colegio
             ,Id_representante:this.r.uid
             ,Id_usuario:this.r.uid
             ,Nombre:this.nombre

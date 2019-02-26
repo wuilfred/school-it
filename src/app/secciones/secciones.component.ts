@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { SeccionFormComponent } from '../forms/seccion-form/seccion-form.component'
+import { DisableSectionComponent } from '../forms/disable-section/disable-section.component';
 import { MatDialog } from "@angular/material";
 import { AuthenticationService } from "../services/authentication.service";
 import { UserService } from "../services/user.service";
@@ -24,12 +25,26 @@ export class SeccionesComponent implements OnInit {
   ) { 
       this.authService.getStatus().subscribe(
         (user) => {
+          /*this.userService.checkIdSchool().then(response => {
             this.colid = this.userService.getSection(user.uid).valueChanges().subscribe(
                 (seccion: Seccion[]) => {
                     this.secciones = seccion;
                 }
-            );
-            console.log("Usuario"+user.uid);
+            )
+          }*/  
+          this.userService.checkIdSchool().then(response => {
+            console.log(response);
+            this.colid = this.userService.getSection(response).valueChanges().subscribe(
+              (seccion: Seccion[]) => {
+                  this.secciones = seccion;
+              }
+            )
+          },
+          (err) => {
+              console.log('Error is institucion', err);
+          }
+          );
+
         }
       );
       console.log("Variable de secciones"+this.secciones);
@@ -54,13 +69,17 @@ export class SeccionesComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    console.log("la variable del componente")
-    
+  ngOnInit() { 
   }
 
   off(obj){
-    console.log(obj);
+    const dialogRef = this.dialog.open(DisableSectionComponent, {
+      panelClass: ['modal-border', 'modal-color1'],data: obj
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+        console.log('closed');
+    });
   }
 
 }
