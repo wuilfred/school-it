@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit,Inject} from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material';
 import {AuthenticationService} from "../../services/authentication.service";
 import {UserService} from "../../services/user.service";
 import {AngularFireDatabase} from "@angular/fire/database";
@@ -15,34 +16,60 @@ export class NuevoAvisoComponent implements OnInit {
     user;
     descripcion;
     colegio;
+    sede;
+    object;
+    grado : string;
+    idGrado : string;
 
     constructor(private authService: AuthenticationService, private userService: UserService,
                 private db: AngularFireDatabase,
-                public dialog: MatDialog) {
-        this.authService.getStatus().subscribe(
-            (user)=>{
-                this.user = user;
-                this.userService.getColegioo(this.user.uid).valueChanges().subscribe(
-                    (colegio: any[])=>{
-                        colegio.forEach(
-                            (data)=>{
-                                this.colegio = data;
+                public dialog: MatDialog,
+                @Inject(MAT_DIALOG_DATA) public data: any) {
+                
+                // information of the object sent                                                                                                                                                                                           
+                this.object = data;     
+                this.grado = data.grado;
+                this.idGrado = data.idGrado;
+                this.sede = data.sede                                                                                                   
+                
+                this.authService.getStatus().subscribe(
+                    (user)=>{
+                        this.user = user;
+                        this.userService.getColegioo(this.user.uid).valueChanges().subscribe(
+                            (colegio: any[])=>{
+                                colegio.forEach(
+                                    (data)=>{
+                                        this.colegio = data;
+                                    }
+                                );
                             }
                         );
                     }
                 );
-            }
-        );
     }
 
     createAviso(){
+        this.sede = "-LZL2jsoMImuW9oxLIXS";
         const aviso = {
-            'created': Date.now(),
-            'id': this.db.createPushId(),
-            'titulo': this.titulo,
-            'descripcion': this.descripcion,
-            'colegio': this.colegio.id,
-            'creator': this.user.uid
+                'Id':this.db.createPushId(),
+                'Content':this.descripcion,
+                'Grado':this.grado,
+                'Id_colegio':this.colegio.id,
+                'Id_grado':this.idGrado,
+                'Id_maestro':'',
+                'Id_materia':'GENERAL',
+                'Id_representante':this.user.uid,
+                'Id_seccion':'',
+                'Id_sede':this.sede,
+                'Id_usuario':this.user.uid,
+                'IsVisible':false,
+                'Maestro':'',
+                'Materia':'General',
+                'Seccion':'',
+                'Sede':'',
+                'Status':"1",
+                'Timestamp':Date.now(),
+                'Titulo': this.titulo
         }
         this.userService.createAviso(aviso).then(
             (success)=>{

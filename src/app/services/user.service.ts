@@ -226,7 +226,7 @@ export class UserService {
     }
 
     createAviso(obj){
-        return this.angularFireDb.object(`aviso/${obj.colegio}/${obj.id}`).set(obj);
+        return this.angularFireDb.object(`aviso/${obj.Id_colegio}/${obj.Id_sede}/${obj.Id}`).set(obj);
     }
     getAvisos(obj){
         return this.angularFireDb.list(`aviso/${obj}`);

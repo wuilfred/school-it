@@ -41,13 +41,12 @@ export class SeccionesComponent implements OnInit {
             )
           },
           (err) => {
-              console.log('Error is institucion', err);
+              console.log('Error, is not a institution', err);
           }
           );
 
         }
       );
-      console.log("Variable de secciones"+this.secciones);
   }
 
   searchT() {
