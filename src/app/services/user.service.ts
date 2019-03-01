@@ -51,6 +51,11 @@ export class UserService {
         return this.angularFireDb.list(`materia/${uid}`);
     }
 
+    getMateriasMaestro(obj) {
+        return this.angularFireDb.list(`materia/${obj.id}`,
+        ref => ref.orderByChild('id_representante').equalTo(obj.id_representante));
+    }
+
     getSchoolList(){
         return this.angularFireDb.list(`colegio`);
     }
@@ -110,7 +115,7 @@ export class UserService {
         return this.angularFireDb.list(`/asignacion_maestro_colegio/${uid}`);
     }
     getMaestro(uid){
-        return this.angularFireDb.object(`maestro/${uid.id_maestro}`);
+        return this.angularFireDb.object(`maestro/${uid}`);
     }
     getMm(uid){
         return this.angularFireDb.object(`maestro/${uid}`);
@@ -125,7 +130,7 @@ export class UserService {
         return this.angularFireDb.object(`maestro/${uid}`);
     }
     getSede(id){
-        return this.angularFireDb.list(`sede_t/${id}`);
+        return this.angularFireDb.list(`sede_colegio/${id}`);
     }
     getMaestrosC(uid){
         return this.angularFireDb.list(`/maestro/`, ref => ref.child('id_colegio').equalTo(uid));
