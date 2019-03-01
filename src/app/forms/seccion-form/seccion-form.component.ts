@@ -36,8 +36,8 @@ export class SeccionFormComponent implements OnInit {
                     }
                 );*/
                 this.userService.checkIdSchool().then(response => {
-                    this.colegio = response;  
-                });    
+                    this.colegio = response;
+                });
             }
         );
     }

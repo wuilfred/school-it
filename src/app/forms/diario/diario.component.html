@@ -1,6 +1,10 @@
 <mat-toolbar>
-    <span><a routerLink="/" class="brand-logo"><img src="assets/img/schoolit-logo.svg" alt="" width="130"></a>
-</span>
+  <span>
+    <a routerLink="/" class="brand-logo"><img src="assets/img/schoolit-logo.svg" alt="" width="130"></a>
+  </span>
+  <div class="options">
+      <i class="fas fa-plus effect" title="Agregar Diario" (click)="openDialog()"></i>
+  </div>
 </mat-toolbar>
 <div class="some-padding bc-c sf login">
   <div class="form-container center">
@@ -8,13 +12,64 @@
       <h3>Añadir Diario</h3>
   
     <div class="form-body">
-      <input [(ngModel)]="grado"      type="text"   placeholder="Grado"      name="grado"  />
-      <input [(ngModel)]="seccion"    type="text"   placeholder="Seccion"    name="seccion" />
-      <input [(ngModel)]="sede"       type="text"   placeholder="Sede"       name="sede"/>
-      <input [(ngModel)]="materia"    type="text"   placeholder="Materia"    name="materia"/>
-      <input [(ngModel)]="titulo"     type="text"   placeholder="Titulo"     name="titulo" />
-      <input [(ngModel)]="contenido"  type="number" placeholder="Contenido"  name="contenido"/>
-      <a (click)="createDiario()" class="real-button effect">Crear Diario</a>
+      <input [(ngModel)]="titulo"  type="text"   placeholder="Titulo"     name="titulo" />
+      <mat-form-field>
+          <mat-select placeholder="Grado" [formControl]="gradoControl" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let grado of DataGrado" [value]="grado">
+              {{grado.descripcion}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="gradoControl.hasError('required')">Please choose an grade</mat-error>
+          <mat-hint>{{gradoControl.value?.descripcion}}</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Maestro" [formControl]="maestroControl" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let maestro of DataMaestro" [value]="maestro">
+              {{maestro.Nombre}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="gradoControl.hasError('required')">Please choose an grade</mat-error>
+          <mat-hint>{{maestroControl.value?.Nombre}}</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+        <mat-select placeholder="Materia" [formControl]="materiaControl" required>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let materia of DataMateria" [value]="materia">
+            {{materia.Nombre}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="materiaControl.hasError('required')">Please choose an grade</mat-error>
+        <mat-hint>{{materiaControl.value?.Nombre}}</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-select placeholder="seccion" [formControl]="seccionControl" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let seccion of DataSeccion" [value]="seccion">
+              {{seccion.Nombre}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="seccionControl.hasError('required')">Please choose an grade</mat-error>
+          <mat-hint>{{seccionControl.value?.Nombre}}</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="sede" [formControl]="sedeControl" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let sede of DataSede" [value]="sede">
+              {{sede.Nombre}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="sedeControl.hasError('required')">Please choose an grade</mat-error>
+          <mat-hint>{{sedeControl.value?.Nombre}}</mat-hint>
+        </mat-form-field>
+      
+        <input [(ngModel)]="contenido"  type="text" placeholder="Contenido"  name="contenido"/>
+        <a (click)="createDiario()" class="real-button effect">Crear Diario</a>
     </div>
   </div>
 </div>
