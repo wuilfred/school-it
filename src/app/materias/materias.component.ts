@@ -20,12 +20,14 @@ export class MateriasComponent implements OnInit {
     constructor(private authService: AuthenticationService, private userService: UserService, public dialog: MatDialog) {
         this.authService.getStatus().subscribe(
             (user)=>{
-                this.userService.getMaterias(user.uid).valueChanges().subscribe(
-                    (materias)=>{
-                        console.log(materias);
-                        this.materias = materias;
-                    }
-                );
+                this.userService.checkIdSchool().then(response => {
+                    this.userService.getMaterias(response).valueChanges().subscribe(
+                        (materias)=>{
+                            console.log(materias);
+                            this.materias = materias;
+                        }
+                    );
+                });
             }
         );
     }

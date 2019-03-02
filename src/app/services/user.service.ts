@@ -22,7 +22,7 @@ export class UserService {
     }
 
     createMateria(obj){
-        return this.angularFireDb.object(`materia/${obj.id_representante}/${obj.id}`).set(obj);
+        return this.angularFireDb.object(`materia/${obj.id_colegio}/${obj.id}`).set(obj);
     }
 
     // Remove ${school.id_representante}/
@@ -89,7 +89,7 @@ export class UserService {
     }
 
     createSolicitud(avi){
-        return this.angularFireDb.object(`solicitud/${avi.id_representante}/${avi.id_user}`).set(avi);
+        return this.angularFireDb.object(`solicitud/${avi.id_colegio}/${avi.id_user}`).set(avi);
     }
 
     createTarea(obj){
