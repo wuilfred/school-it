@@ -26,9 +26,10 @@ export class NuevoAvisoComponent implements OnInit {
                 public dialog: MatDialog,
                 @Inject(MAT_DIALOG_DATA) public data: any) {
                 
-                // information of the object sent                                                                                                                                                                                           
+                // information of the object sent             
+                console.log('object data', data);                                              
                 this.object = data;     
-                this.grado = data.grado;
+                this.grado = data.Grado;
                 this.idGrado = data.idGrado;
                 this.sede = data.sede                                                                                                   
                 

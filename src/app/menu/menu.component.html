@@ -18,7 +18,7 @@
             <div class="profile-container">
                 <img src="{{ user.Url_foto || 'assets/img/School_defult.jpg' }}" alt="">
                 <p class="text-b" routerLink="/profile/{{user.uid}}">
-                    {{ user.Correo }}
+                    {{ user.Nombre }} {{ user.Apellido }}
                 </p>
             </div>
         </div>
@@ -37,7 +37,7 @@
         </ng-container>
         <ng-container *ngIf="user.Role == 'colegio' && router.url != '/inicio'">
             <mat-list-item routerLink="/sede">
-                <i class="fas fa=iser"></i>
+                <i class="fas fa-user"></i>
                 <p class="text-b">
                     Sedes
                 </p>

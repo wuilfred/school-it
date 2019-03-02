@@ -23,21 +23,24 @@ export class MateriaComponent implements OnInit {
     }
 
     createM(){
-        const mater = {
-            'nombre': this.materia,
-            'descripcion' : this.descripcion,
-            'id_representante' : this.user,
-            'id' : this.db.createPushId()
-        };
-        this.userService.createMateria(JSON.parse( JSON.stringify(mater))).then(
-            (data)=>{
-                console.log(`success ${data}`);
-            }
-        ).catch(
-            (err)=>{
-                console.log(err);
-            }
-        );
+        this.userService.checkIdSchool().then(response => {
+            const mater = {
+                'nombre': this.materia,
+                'descripcion' : this.descripcion,
+                'id_representante' : this.user,
+                'id' : this.db.createPushId(),
+                'id_colegio' : response
+            };
+            this.userService.createMateria(JSON.parse( JSON.stringify(mater))).then(
+                (data)=>{
+                    console.log(`success ${data}`);
+                }
+            ).catch(
+                (err)=>{
+                    console.log(err);
+                }
+            );
+        });
     }
 
     ngOnInit() {

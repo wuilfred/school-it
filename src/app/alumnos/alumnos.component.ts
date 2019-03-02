@@ -24,16 +24,18 @@ export class AlumnosComponent implements OnInit {
     constructor(public dialog: MatDialog,
                 public userService: UserService,
                 public authService: AuthenticationService) {
-       this.authService.getStatus().subscribe(
-            (user)=>{
-                this.un = this.userService.getAllAlumnos(user.uid).valueChanges().subscribe(
-                    (alumnos)=>{
-                        this.alumnos = alumnos;
-                        console.log(alumnos);
-                    }
-                );
-            }
-        );
+        this.userService.checkIdSchool().then(response => {
+           this.authService.getStatus().subscribe(
+                (user)=>{
+                    this.un = this.userService.getAllAlumnos(response).valueChanges().subscribe(
+                        (alumnos)=>{
+                            this.alumnos = alumnos;
+                            console.log(alumnos);
+                        }
+                    );
+                }
+            );
+        });
     }
     searchT(){
         this.show = !this.show;
