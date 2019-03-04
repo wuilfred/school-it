@@ -30,7 +30,7 @@ export interface DataMateria {
   Id_representante: string;
   Id_usuario: string;
   Nota: string;
-  Status: string;
+  Status: false;
   Requisitos: string;
 }
 
@@ -97,6 +97,16 @@ export class DiarioComponent implements OnInit {
     private db: AngularFireDatabase,
     public dialog: MatDialog
   ) { }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DiarioComponent, {
+        panelClass: ['modal-color1'],
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+        console.log('closed');
+    });
+  }
 
   ngOnInit() {
     this.authService.getStatus().subscribe(

@@ -16,7 +16,14 @@
       <input [(ngModel)]="telefono"     type="number" placeholder="Telefono"      name="telefono"/>
       <input [(ngModel)]="correo"       type="email" placeholder="colegio@email.com" name="correo"/>
       <input [(ngModel)]="horario"      type="datetime" placeholder="Horario"     name="horario"/>
-      <input [(ngModel)]="status"       type="combobox" placeholder="activo"      name="status"/>
+      <section class="sede-section">
+          <mat-checkbox
+              class="example-margin"
+              [(ngModel)]="Status">
+              Status
+          </mat-checkbox>
+        </section>
+
       <a (click)="createSede()" class="real-button effect">Crear Sede</a>
     </div>
   </div>
