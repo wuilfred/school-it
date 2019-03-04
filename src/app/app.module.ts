@@ -11,7 +11,6 @@ import { GradosComponent } from './grados/grados.component';
 import { MenuComponent } from './menu/menu.component';
 import {RouterModule, Routes} from "@angular/router";
 import {SearchPipe} from "./pipe/search";
-import {FormsModule} from "@angular/forms";
 import {AngularFireModule} from "@angular/fire";
 import {environment} from "../environments/environment";
 import {AngularFirestoreModule} from "@angular/fire/firestore";
@@ -62,7 +61,7 @@ import { DiarioComponent } from './forms/diario/diario.component';
 import { DisableSectionComponent } from './forms/disable-section/disable-section.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AvisosComponent } from './avisos/avisos.component';
 
 
@@ -154,6 +153,8 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
