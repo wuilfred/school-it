@@ -11,6 +11,7 @@ import { GradosComponent } from './grados/grados.component';
 import { MenuComponent } from './menu/menu.component';
 import {RouterModule, Routes} from "@angular/router";
 import {SearchPipe} from "./pipe/search";
+import {FormsModule} from "@angular/forms";
 import {AngularFireModule} from "@angular/fire";
 import {environment} from "../environments/environment";
 import {AngularFirestoreModule} from "@angular/fire/firestore";
@@ -158,10 +159,7 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-    MaterialModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    ReactiveFormsModule
+    MaterialModule
   ],
   entryComponents: [
       GradoFormComponent,
