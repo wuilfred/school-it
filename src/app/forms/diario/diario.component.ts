@@ -197,4 +197,9 @@ export class DiarioComponent implements OnInit {
     console.log(this.dataDiario);
   }
 
+
+  openDialog () {
+    
+  }
+
 }
