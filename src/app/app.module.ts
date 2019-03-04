@@ -11,7 +11,6 @@ import { GradosComponent } from './grados/grados.component';
 import { MenuComponent } from './menu/menu.component';
 import {RouterModule, Routes} from "@angular/router";
 import {SearchPipe} from "./pipe/search";
-import {FormsModule} from "@angular/forms";
 import {AngularFireModule} from "@angular/fire";
 import {environment} from "../environments/environment";
 import {AngularFirestoreModule} from "@angular/fire/firestore";
@@ -60,6 +59,11 @@ import { SeccionFormComponent } from './forms/seccion-form/seccion-form.componen
 import { TareasComponent } from './forms/tareas/tareas.component';
 import { DiarioComponent } from './forms/diario/diario.component';
 import { DisableSectionComponent } from './forms/disable-section/disable-section.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { AvisosComponent } from './avisos/avisos.component';
+
 
 const appRoutes: Routes = [
     {path: 'inicio', component: InicioComponent, canActivate: [AuthenticationGuard]},
@@ -91,8 +95,9 @@ const appRoutes: Routes = [
 
     {path: 'sede', component: SedeComponent, canActivate: [AuthenticationGuard]},
     {path: 'tareas', component: TareasComponent, canActivate: [AuthenticationGuard]},
-    {path: 'diario', component: DiarioComponent, canActivate: [AuthenticationGuard]}
-    
+    {path: 'diario', component: DiarioComponent, canActivate: [AuthenticationGuard]},
+    {path: 'aviso', component: AvisosComponent, canActivate: [AuthenticationGuard]}
+
 ];
 
 @NgModule({
@@ -140,7 +145,8 @@ const appRoutes: Routes = [
     TareasComponent,
     DiarioComponent,
     SchoolProfileComponent,
-    DisableSectionComponent
+    DisableSectionComponent,
+    AvisosComponent
   ],
   imports: [
     BrowserModule,
@@ -152,7 +158,10 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-    MaterialModule
+    MaterialModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   entryComponents: [
       GradoFormComponent,
@@ -172,7 +181,8 @@ const appRoutes: Routes = [
       SedeComponent,
       SeccionesComponent,
       SeccionFormComponent,
-      DisableSectionComponent
+      DisableSectionComponent,
+      AvisosComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {LocationStrategy} from "@angular/common";
 import {AuthenticationService} from "../services/authentication.service";
 import {UserService} from "../services/user.service";
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
     selector: 'app-end-component',
@@ -12,7 +13,7 @@ import {UserService} from "../services/user.service";
 export class EndComponentComponent implements OnInit {
     title: string = 'Avisos';
     alumnoId;
-    aviso;
+    aviso : any[];
     sub;
     colegio;
 
@@ -28,8 +29,11 @@ export class EndComponentComponent implements OnInit {
                             (data)=>{
                                 this.userService.getAvisos(data.id).valueChanges().subscribe(
                                     (aviso) => {
-                                        console.log(aviso);
-                                        this.aviso = aviso.reverse();
+                                        aviso.forEach(element => {
+                                            for (let prop in element) {
+                                                this.aviso = [element[prop]];
+                                            }
+                                        }); 
                                     }
                                 );
                             }

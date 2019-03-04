@@ -25,14 +25,11 @@ export class DisableSectionComponent implements OnInit {
   ) {
     this.section = this.data
     this.descripcion = this.data.Descripcion;
-    this.nombre = this.data.Nombre
-    console.log(this.section);
-
-        
+    this.nombre = this.data.Nombre;
+    
   }
 
-  ngOnInit() {
-    
+  ngOnInit() { 
   }
 
   disable(){

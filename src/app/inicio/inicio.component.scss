@@ -5,6 +5,17 @@
   z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
   max-width: 70vw;
 }
+mat-card-content {
+  clear: both;
+  overflow: hidden;
+
+  .mat-card-sm-image {
+    float: left;
+    margin: 0 9px 0 0;
+    border-radius: 60%;
+  }
+}
+
 div{
   ////padding: 1em;
   overflow: auto;

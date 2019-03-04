@@ -1,10 +1,60 @@
 <div class="form">
-  <div class="form-header">
+  <!--<div class="form-header">
     <h3>Aviso</h3>
-  </div>
+  </div>-->
   <div class="form-body">
+    <mat-form-field>
+      <mat-select placeholder="Grado" [formControl]="gradeControl" required panelClass="my-select-panel-class">
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let grado of degrees" [value]="grado">
+          {{grado.descripcion}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="gradeControl.hasError('required')">Por favor, Selecciona un Grado</mat-error>
+      <mat-hint>{{gradeControl.value?.descripcion}}</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-select placeholder="Maestro" [formControl]="teacherControl" required>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let maestro of teachers" [value]="maestro">
+            {{maestro.Nombre}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="teacherControl.hasError('required')">Por favor, Selecciona un maestro</mat-error>
+        <mat-hint>{{teacherControl.value?.Nombre}}</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Materia" [formControl]="matterControl" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let materia of matters" [value]="materia">
+          {{materia.Nombre}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="matterControl.hasError('required')">Please choose an grade</mat-error>
+      <mat-hint>{{matterControl.value?.Nombre}}</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Sección" [formControl]="sectionControl" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let seccion of sections" [value]="seccion">
+          {{seccion.Nombre}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="sectionControl.hasError('required')">Please choose an grade</mat-error>
+      <mat-hint>{{sectionControl.value?.Nombre}}</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="sede" [formControl]="headquartersControl" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let sede of headquarters" [value]="sede">
+          {{sede.Nombre}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="headquartersControl.hasError('required')">Please choose an grade</mat-error>
+      <mat-hint>{{headquartersControl.value?.Nombre}}</mat-hint>
+    </mat-form-field>
     <input type="text" [(ngModel)]="titulo" placeholder="Titulo" required>
-    <textarea [(ngModel)]="descripcion" cols="30" rows="10" placeholder="Descripcion"></textarea>
+    <textarea [(ngModel)]="descripcion" cols="30" rows="4" placeholder="Descripcion"></textarea>
     <div class="form-b">
       <a (click)="createAviso()" class="yes effect ripple">Crear</a>
       <a class="nope anim" (click)="close()">Cancelar</a>

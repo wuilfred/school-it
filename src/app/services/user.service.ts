@@ -22,7 +22,7 @@ export class UserService {
     }
 
     createMateria(obj){
-        return this.angularFireDb.object(`materia/${obj.id_representante}/${obj.id}`).set(obj);
+        return this.angularFireDb.object(`materia/${obj.id_colegio}/${obj.id}`).set(obj);
     }
 
     // Remove ${school.id_representante}/
@@ -49,6 +49,10 @@ export class UserService {
 
     getMaterias(uid){
         return this.angularFireDb.list(`materia/${uid}`);
+    }
+
+    getMateriasObj(uid){
+        return this.angularFireDb.object(`materia/${uid}`);
     }
 
     getMateriasMaestro(obj) {
@@ -89,7 +93,7 @@ export class UserService {
     }
 
     createSolicitud(avi){
-        return this.angularFireDb.object(`solicitud/${avi.id_representante}/${avi.id_user}`).set(avi);
+        return this.angularFireDb.object(`solicitud/${avi.id_colegio}/${avi.id_user}`).set(avi);
     }
 
     createTarea(obj){
@@ -227,11 +231,11 @@ export class UserService {
     }
 
     createDiario(obj){
-        return this.angularFireDb.object(`diario/${obj.colegio}/${obj.grado}/${obj.id}`).set(obj);
+        return this.angularFireDb.object(`diario/${obj.colegio}/${obj.grado}/${obj.uid}`).set(obj);
     }
 
     createAviso(obj){
-        return this.angularFireDb.object(`aviso/${obj.colegio}/${obj.id}`).set(obj);
+        return this.angularFireDb.object(`aviso/${obj.Id_colegio}/${obj.Id_sede}/${obj.id}`).set(obj);
     }
     getAvisos(obj){
         return this.angularFireDb.list(`aviso/${obj}`);

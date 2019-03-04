@@ -23,12 +23,14 @@ export class SolicitudesComponent implements OnInit {
         this.authService.getStatus().subscribe(
             (user)=>{
                 this.uid = user.uid;
-                this.sub = this.userService.getSolicitudes(user.uid).valueChanges().subscribe(
-                    (solicitud)=>{
-                        this.solicitud = solicitud;
-                        console.log(solicitud);
-                    }
-                );
+                this.userService.checkIdSchool().then(response => {
+                    this.sub = this.userService.getSolicitudes(response).valueChanges().subscribe(
+                        (solicitud)=>{
+                            this.solicitud = solicitud;
+                            console.log(solicitud);
+                        }
+                    );
+                 });
             }
         );
     }

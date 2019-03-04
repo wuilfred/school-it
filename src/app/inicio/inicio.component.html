@@ -9,8 +9,9 @@
     <div class="">
         <ng-container *ngIf="colegio">
             <ng-container *ngFor="let c of colegio">
-                <mat-card class="card">
+                <mat-card class="card" *ngIf="c.Nombre_comercial">
                      <mat-card-content (click)="replaceComercial(c);">
+                        <img mat-card-sm-image src="{{c.Url_foto}}">
                           <mat-card-title> {{c.Nombre_comercial}}</mat-card-title>
                           <mat-card-subtitle> {{c.Direccion_central}} </mat-card-subtitle>
                      </mat-card-content>
