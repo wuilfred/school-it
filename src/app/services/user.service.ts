@@ -51,6 +51,10 @@ export class UserService {
         return this.angularFireDb.list(`materia/${uid}`);
     }
 
+    getMateriasObj(uid){
+        return this.angularFireDb.object(`materia/${uid}`);
+    }
+
     getMateriasMaestro(obj) {
         return this.angularFireDb.list(`materia/${obj.id}`,
         ref => ref.orderByChild('id_representante').equalTo(obj.id_representante));
@@ -227,11 +231,11 @@ export class UserService {
     }
 
     createDiario(obj){
-        return this.angularFireDb.object(`diario/${obj.colegio}/${obj.grado}/${obj.id}`).set(obj);
+        return this.angularFireDb.object(`diario/${obj.colegio}/${obj.grado}/${obj.uid}`).set(obj);
     }
 
     createAviso(obj){
-        return this.angularFireDb.object(`aviso/${obj.Id_colegio}/${obj.Id_sede}/${obj.Id}`).set(obj);
+        return this.angularFireDb.object(`aviso/${obj.Id_colegio}/${obj.Id_sede}/${obj.id}`).set(obj);
     }
     getAvisos(obj){
         return this.angularFireDb.list(`aviso/${obj}`);
