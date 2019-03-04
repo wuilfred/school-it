@@ -4,6 +4,8 @@ import {AuthenticationService} from "../../services/authentication.service";
 import {UserService} from "../../services/user.service";
 import {AngularFireDatabase} from "@angular/fire/database";
 import {MatDialog} from "@angular/material";
+import {FormControl, Validators} from '@angular/forms';
+import { Grados } from "../../interfaces/grado";
 
 @Component({
     selector: 'app-nuevo-aviso',
@@ -18,21 +20,29 @@ export class NuevoAvisoComponent implements OnInit {
     colegio;
     sede;
     object;
+    info = [];
+    DataAsigMaestro;
     grado : string;
     idGrado : string;
+    teachers;
+    degrees : Grados[];
+    headquarters : any[];
+    matters : any[];
+    sections:  any[];
+
+    gradeControl = new FormControl('', [Validators.required]);
+    teacherControl = new FormControl('', [Validators.required]);
+    matterControl = new FormControl('', [Validators.required]);
+    sectionControl = new FormControl('', [Validators.required]);
+    headquartersControl = new FormControl('', [Validators.required]);
+
+    getIdColegio = localStorage.getItem('idinstitucion');
 
     constructor(private authService: AuthenticationService, private userService: UserService,
                 private db: AngularFireDatabase,
                 public dialog: MatDialog,
                 @Inject(MAT_DIALOG_DATA) public data: any) {
-                
-                // information of the object sent             
-                console.log('object data', data);                                              
-                this.object = data;     
-                this.grado = data.Grado;
-                this.idGrado = data.idGrado;
-                this.sede = data.sede                                                                                                   
-                
+                                                                                 
                 this.authService.getStatus().subscribe(
                     (user)=>{
                         this.user = user;
@@ -45,32 +55,85 @@ export class NuevoAvisoComponent implements OnInit {
                                 );
                             }
                         );
+                        
+                        this.userService.getGrado(this.user.uid).valueChanges().subscribe(
+                            (grado: any[]) => {
+                              grado.forEach(
+                                (data) => {
+                                  this.degrees = [data];
+                                }
+                              );
+                            }
+                          );
+
+                        this.userService.getMaestrosA(this.getIdColegio).valueChanges().subscribe(
+                            (asigMaestroColegio) => {
+                              this.info = asigMaestroColegio;
+                              this.info.forEach(
+                                (data, key2) => {
+                                  this.DataAsigMaestro = Object.keys(this.info[key2]).map(function(key) {
+                                   return asigMaestroColegio[key2][key];
+                                  });
+                                  this.DataAsigMaestro.forEach(
+                                    (rs) => {
+                                      this.userService.getMaterias(rs.Id_colegio).valueChanges().subscribe(
+                                        (materia) => {
+                                          //console.log(materia)
+                                          this.matters = materia;
+                                        }
+                                      );
+                  
+                                      this.userService.getMaestro(rs.Id_maestro).valueChanges().subscribe(
+                                        (maestro) => {
+                                            //console.log(maestro)
+                                          this.teachers = [maestro];
+                                        }
+                                      );
+                  
+                                      this.userService.getSection(rs.Id_colegio).valueChanges().subscribe(
+                                        (secciones) => {
+                                          this.sections = secciones;
+                                        }
+                                      );
+                  
+                                      this.userService.getSede(rs.Id_colegio).valueChanges().subscribe(
+                                        (sede) => {
+                                           this.headquarters = sede;
+                                        }
+                                      );
+                                    }
+                                  );
+                                }
+                              );
+                            }
+                          );    
+
                     }
                 );
     }
 
     createAviso(){
-        this.sede = "-LZL2jsoMImuW9oxLIXS";
+        
         const aviso = {
-                'Id':this.db.createPushId(),
-                'Content':this.descripcion,
-                'Grado':this.grado,
-                'Id_colegio':this.colegio.id,
-                'Id_grado':this.idGrado,
-                'Id_maestro':'',
-                'Id_materia':'GENERAL',
-                'Id_representante':this.user.uid,
-                'Id_seccion':'',
-                'Id_sede':this.sede,
-                'Id_usuario':this.user.uid,
-                'IsVisible':false,
-                'Maestro':'',
-                'Materia':'General',
-                'Seccion':'',
-                'Sede':'',
-                'Status':"1",
-                'Timestamp':Date.now(),
-                'Titulo': this.titulo
+                id:this.db.createPushId(),
+                Content:this.descripcion,
+                Grado:this.gradeControl.value.nombre,
+                Id_colegio:this.colegio.id,
+                Id_grado:this.gradeControl.value.id,
+                Id_maestro:this.teacherControl.value.Id_maestro,
+                Id_materia:'GENERAL',
+                Id_representante:this.user.uid,
+                Id_seccion:this.sectionControl.value.Id,
+                Id_sede:this.headquartersControl.value.Id_colegio,
+                Id_usuario:this.user.uid,
+                IsVisible:false,
+                Maestro:this.teacherControl.value.Nombre+" "+this.teacherControl.value.Apellido,
+                Materia:'General',
+                Seccion:this.sectionControl.value.Nombre,
+                Sede:this.headquartersControl.value.Nombre,
+                Status:"1",
+                Timestamp:Date.now(),
+                Titulo: this.titulo
         }
         this.userService.createAviso(aviso).then(
             (success)=>{

@@ -11,6 +11,7 @@ import { GradosComponent } from './grados/grados.component';
 import { MenuComponent } from './menu/menu.component';
 import {RouterModule, Routes} from "@angular/router";
 import {SearchPipe} from "./pipe/search";
+import {FormsModule} from "@angular/forms";
 import {AngularFireModule} from "@angular/fire";
 import {environment} from "../environments/environment";
 import {AngularFirestoreModule} from "@angular/fire/firestore";
@@ -62,7 +63,7 @@ import { DisableSectionComponent } from './forms/disable-section/disable-section
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
+import { AvisosComponent } from './avisos/avisos.component';
 
 
 const appRoutes: Routes = [
@@ -95,9 +96,8 @@ const appRoutes: Routes = [
 
     {path: 'sede', component: SedeComponent, canActivate: [AuthenticationGuard]},
     {path: 'tareas', component: TareasComponent, canActivate: [AuthenticationGuard]},
-    {path: 'diario', component: DiarioComponent, canActivate: [AuthenticationGuard]}
-
-];
+    {path: 'diario', component: DiarioComponent, canActivate: [AuthenticationGuard]},
+    {path: 'aviso', component: AvisosComponent, canActivate: [AuthenticationGuard]}
 
 @NgModule({
   declarations: [
@@ -144,7 +144,8 @@ const appRoutes: Routes = [
     TareasComponent,
     DiarioComponent,
     SchoolProfileComponent,
-    DisableSectionComponent
+    DisableSectionComponent,
+    AvisosComponent
   ],
   imports: [
     BrowserModule,
@@ -156,10 +157,7 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-    MaterialModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    ReactiveFormsModule
+    MaterialModule
   ],
   entryComponents: [
       GradoFormComponent,
@@ -179,7 +177,8 @@ const appRoutes: Routes = [
       SedeComponent,
       SeccionesComponent,
       SeccionFormComponent,
-      DisableSectionComponent
+      DisableSectionComponent,
+      AvisosComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

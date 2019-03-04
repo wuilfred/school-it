@@ -4,20 +4,19 @@
 <div class="avisos-container">
     <p *ngIf="aviso == null || aviso == ''">No hay avisos</p>
     <mat-accordion *ngIf="aviso">
+        <br><small>Avisos</small>
         <ng-container *ngFor="let m of aviso">
             <mat-expansion-panel>
                 <mat-expansion-panel-header collapsedHeight="5em" expandedHeight="6em">
                     <mat-panel-title class="panel-title">
-                        <p><a>{{m.titulo}}</a>
-                            <br><small>Aviso</small>
+                        <p><a>{{m.Titulo}}</a>
+                            
                         </p>
                     </mat-panel-title>
                     <mat-panel-description>
-
                     </mat-panel-description>
                 </mat-expansion-panel-header>
-
-                {{m.descripcion}}
+                {{m.Content}}
             </mat-expansion-panel>
         </ng-container>
     </mat-accordion>
