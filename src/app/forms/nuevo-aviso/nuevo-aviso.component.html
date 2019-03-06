@@ -7,11 +7,11 @@
       <mat-select placeholder="Grado" [formControl]="gradeControl" required panelClass="my-select-panel-class">
         <mat-option>--</mat-option>
         <mat-option *ngFor="let grado of degrees" [value]="grado">
-          {{grado.descripcion}}
+          {{grado.Nombre}}
         </mat-option>
       </mat-select>
       <mat-error *ngIf="gradeControl.hasError('required')">Por favor, Selecciona un Grado</mat-error>
-      <mat-hint>{{gradeControl.value?.descripcion}}</mat-hint>
+      <mat-hint>{{gradeControl.value?.Nombre}}</mat-hint>
     </mat-form-field>
     <mat-form-field>
         <mat-select placeholder="Maestro" [formControl]="teacherControl" required>

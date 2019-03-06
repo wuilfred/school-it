@@ -51,16 +51,19 @@ export class NuevoAvisoComponent implements OnInit {
                                 colegio.forEach(
                                     (data)=>{
                                         this.colegio = data;
+                                        console.log(data)
                                     }
                                 );
                             }
                         );
                         
                         this.userService.getGrado(this.user.uid).valueChanges().subscribe(
-                            (grado: any[]) => {
+                            (grado: Grados[]) => {
                               grado.forEach(
                                 (data) => {
-                                  this.degrees = [data];
+                                  //this.degrees = [data];
+                                  //console.log(grado)
+                                  console.log(data)
                                 }
                               );
                             }
