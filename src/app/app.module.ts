@@ -97,8 +97,7 @@ const appRoutes: Routes = [
     {path: 'tareas', component: TareasComponent, canActivate: [AuthenticationGuard]},
     {path: 'diario', component: DiarioComponent, canActivate: [AuthenticationGuard]},
     {path: 'aviso', component: AvisosComponent, canActivate: [AuthenticationGuard]}
-
-];
+    ];
 
 @NgModule({
   declarations: [

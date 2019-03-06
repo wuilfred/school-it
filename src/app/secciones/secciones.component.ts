@@ -36,6 +36,7 @@ export class SeccionesComponent implements OnInit {
             console.log(response);
             this.colid = this.userService.getSection(response).valueChanges().subscribe(
               (seccion: Seccion[]) => {
+                    console.log('all sections', seccion);
                   this.secciones = seccion;
               }
             )
