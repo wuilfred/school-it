@@ -99,8 +99,6 @@ const appRoutes: Routes = [
     {path: 'aviso', component: AvisosComponent, canActivate: [AuthenticationGuard]}
     ];
 
-];
-
 @NgModule({
   declarations: [
     AppComponent,

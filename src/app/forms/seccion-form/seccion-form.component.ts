@@ -51,7 +51,7 @@ export class SeccionFormComponent implements OnInit {
             ,Id_representante:this.r.uid
             ,Id_usuario:this.r.uid
             ,Nombre:this.nombre
-            ,Status:this.status
+            ,Status:parseInt(this.status)
             ,Timestamp: Date.now()
         }
         
