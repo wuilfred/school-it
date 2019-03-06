@@ -29,6 +29,7 @@ export class NuevoAvisoComponent implements OnInit {
     headquarters : any[];
     matters : any[];
     sections:  any[];
+    status : number = 1;
 
     gradeControl = new FormControl('', [Validators.required]);
     teacherControl = new FormControl('', [Validators.required]);
@@ -51,7 +52,6 @@ export class NuevoAvisoComponent implements OnInit {
                                 colegio.forEach(
                                     (data)=>{
                                         this.colegio = data;
-                                        console.log(data)
                                     }
                                 );
                             }
@@ -61,7 +61,7 @@ export class NuevoAvisoComponent implements OnInit {
                             (grado: Grados[]) => {
                               grado.forEach(
                                 (data) => {
-                                  //this.degrees = [data];
+                                  this.degrees = [data];
                                   //console.log(grado)
                                   console.log(data)
                                 }
@@ -134,7 +134,7 @@ export class NuevoAvisoComponent implements OnInit {
                 Materia:'General',
                 Seccion:this.sectionControl.value.Nombre,
                 Sede:this.headquartersControl.value.Nombre,
-                Status:"1",
+                Status:this.status,
                 Timestamp:Date.now(),
                 Titulo: this.titulo
         }
