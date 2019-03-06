@@ -25,11 +25,14 @@ export class MateriaComponent implements OnInit {
     createM(){
         this.userService.checkIdSchool().then(response => {
             const mater = {
-                'nombre': this.materia,
-                'descripcion' : this.descripcion,
-                'id_representante' : this.user,
-                'id' : this.db.createPushId(),
-                'id_colegio' : response
+                'Nombre': this.materia,
+                'Descripcion' : this.descripcion,
+                'Id_representante' : this.user,
+                'Id' : this.db.createPushId(),
+                'Id_colegio' : response,
+                'Status': '1',
+                'Requisito': "",
+                'Nota': ""
             };
             this.userService.createMateria(JSON.parse( JSON.stringify(mater))).then(
                 (data)=>{
