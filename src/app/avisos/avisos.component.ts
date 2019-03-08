@@ -16,7 +16,7 @@ export class AvisosComponent implements OnInit {
   avisos : any[];
   show : boolean;
   title = "Avisos";
-  i : number = 0;
+  
   constructor(
     private authService: AuthenticationService,
     public dialog: MatDialog,
@@ -26,23 +26,13 @@ export class AvisosComponent implements OnInit {
     this.authService.getStatus().subscribe(
       (user) => {
         this.userService.checkIdSchool().then(response => {
-          console.log(response);
           this.colid = this.userService.getAvisos(response).valueChanges().subscribe(
                 (aviso) => {
-                  aviso.forEach(element => {
-                      this.avisos = [this.returnArray(element)];
-                      console.log(this.avisos)
-                  }); 
-              }
-          )
-
-          this.userService.getSection(response).valueChanges().subscribe(
-            (seccion: any[]) => {
-                //this.avisos = seccion;
-                console.log(seccion)
-            }
-          )
-          
+                   aviso.forEach(function(value,key){
+                     this.avisos = this.returnArray(value);
+                   }.bind(this));
+                }
+          ) 
         },
           (err) => {
               console.log('Error, is not a institution', err);
@@ -55,13 +45,10 @@ export class AvisosComponent implements OnInit {
    }
 
   returnArray(array){
-    let temp : any[];
-    let i : number = 0;
+    var temp = [];
       for (let prop in array) {
-        temp =array[prop];
-        i++;
-        //console.log(array[prop]);
-      }
+        temp.push(array[prop]);
+      };
       return temp;
   } 
 
