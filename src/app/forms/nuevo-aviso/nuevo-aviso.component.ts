@@ -30,6 +30,7 @@ export class NuevoAvisoComponent implements OnInit {
     matters : any[];
     sections:  any[];
     status : number = 1;
+    colid;
 
     gradeControl = new FormControl('', [Validators.required]);
     teacherControl = new FormControl('', [Validators.required]);
@@ -57,17 +58,15 @@ export class NuevoAvisoComponent implements OnInit {
                             }
                         );
                         
-                        this.userService.getGrado(this.user.uid).valueChanges().subscribe(
-                            (grado: Grados[]) => {
-                              grado.forEach(
-                                (data) => {
-                                  this.degrees = [data];
-                                  //console.log(grado)
-                                  console.log(data)
-                                }
-                              );
+                        this.userService.checkIdSchool().then(response => {
+                                
+                                this.colid = this.userService.getGrado(response).valueChanges().subscribe(
+                                    (grado: Grados[]) => {
+                                        this.degrees = grado;
+                                    }
+                                );
                             }
-                          );
+                        );  
 
                         this.userService.getMaestrosA(this.getIdColegio).valueChanges().subscribe(
                             (asigMaestroColegio) => {
