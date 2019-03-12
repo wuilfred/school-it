@@ -4,6 +4,7 @@ import { DisableSectionComponent } from '../forms/disable-section/disable-sectio
 import { MatDialog } from "@angular/material";
 import { AuthenticationService } from "../services/authentication.service";
 import { UserService } from "../services/user.service";
+import { element } from '@angular/core/src/render3/instructions';
 
 @Component({
   selector: 'app-avisos',
@@ -15,7 +16,7 @@ export class AvisosComponent implements OnInit {
   avisos : any[];
   show : boolean;
   title = "Avisos";
-
+  
   constructor(
     private authService: AuthenticationService,
     public dialog: MatDialog,
@@ -25,13 +26,13 @@ export class AvisosComponent implements OnInit {
     this.authService.getStatus().subscribe(
       (user) => {
         this.userService.checkIdSchool().then(response => {
-          console.log(response);
-          this.colid = this.userService.getSection(response).valueChanges().subscribe(
-            (seccion: any[]) => {
-                this.avisos = seccion;
-                console.log(seccion)
-            }
-          )
+          this.colid = this.userService.getAvisos(response).valueChanges().subscribe(
+                (aviso) => {
+                   aviso.forEach(function(value,key){
+                     this.avisos = this.returnArray(value);
+                   }.bind(this));
+                }
+          ) 
         },
           (err) => {
               console.log('Error, is not a institution', err);
@@ -42,6 +43,14 @@ export class AvisosComponent implements OnInit {
     );
 
    }
+
+  returnArray(array){
+    var temp = [];
+      for (let prop in array) {
+        temp.push(array[prop]);
+      };
+      return temp;
+  } 
 
   ngOnInit() {
 

@@ -15,7 +15,7 @@ export class SeccionFormComponent implements OnInit {
     nombre: string;
     descripcion : string;
     r;
-    status = 1;
+    status : number = 1;
     colegio;
     sub;
 
