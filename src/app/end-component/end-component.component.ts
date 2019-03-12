@@ -32,6 +32,7 @@ export class EndComponentComponent implements OnInit {
                                         aviso.forEach(element => {
                                             for (let prop in element) {
                                                 this.aviso = [element[prop]];
+                                                console.log('aviso', this.aviso);
                                             }
                                         }); 
                                     }

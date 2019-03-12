@@ -6,7 +6,7 @@
       <i class="fas fa-plus effect" (click)="openDialog()"></i>
   </div>
 </mat-toolbar>
-<div class="app-toolbar some-padding" *ngIf="secciones">
+<div class="app-toolbar some-padding" *ngIf="avisos">
     <mat-card *ngFor="let ty of avisos | search: query">
         <div class="user-s" *ngIf="ty.Status === 1">
             <div class="img-profile">

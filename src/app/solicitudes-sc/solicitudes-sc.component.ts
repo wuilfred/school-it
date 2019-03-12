@@ -46,15 +46,16 @@ export class SolicitudesScComponent implements OnInit {
                                     const nom = [userr.nombre, userr.apellido];
                                     this.nombreM = nom.join(' ');
                                     const solicitud = {
-                                        'id_user' : user.uid,
-                                        'nombre' : this.nombreM,
-                                        'id_colegio' : s.Id,
-                                        'id_representante': s.Id_representante,
-                                        'role' : this.roleM
+                                        'Id_user' : user.uid,
+                                        'Nombre' : this.nombreM,
+                                        'Id_colegio' : s.Id,
+                                        'Id_representante': s.Id_representante,
+                                        'Role' : this.roleM
                                     }
                                     console.log('Data solicitud', solicitud);
                                     this.sService.createSolicitud(solicitud).then(
                                         (solicitudd)=>{
+                                            alert('Solicitud enviada!');
                                             console.log('todo bien todo correcto');
                                         }
                                     )

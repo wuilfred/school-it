@@ -1,7 +1,7 @@
 <mat-toolbar class="app-toolbar">
     <span>{{ title }}</span>
     <ng-container *ngIf="user">
-        <div class="options" *ngIf="user.id_colegio == uid">
+        <div class="options" *ngIf="user.Id_colegio == uid">
             <i class="fas fa-plus" *ngIf="user" (click)="openDialog(user)"></i>
         </div>
     </ng-container>
@@ -12,10 +12,10 @@
             <img src="{{user.Url_foto || 'assets/img/School_defult.jpg'}}">
             <div class="user-info">
                 <h4>{{user.Nombre}}</h4>
-                <p>Carnet: {{user.carnet}}</p>
+                <p>Carnet: {{user.Carnet}}</p>
                 <p>Apellidos: {{user.Apellido}}</p>
                 <p>Correo: {{user.Correo}}</p>
-                <p>Edad: {{user.edad}}</p>
+                <p>Edad: {{user.Edad}}</p>
             </div>
         </div>
     </div>

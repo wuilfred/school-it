@@ -9,10 +9,10 @@
     <ng-container *ngFor="let p of alumnos | search: query">
         <div class="alumno">
             <div class="alumno-header">
-                <img src="{{p.url_foto || 'assets/img/School_defult.jpg'}}" class="round-img" alt="" width="80" height="80">
+                <img src="{{p.Url_foto || 'assets/img/School_defult.jpg'}}" class="round-img" alt="" width="80" height="80">
             </div>
             <div class="alumno-body">
-                <a routerLink="/alumnos/profile/{{p.id_t}}/{{p.id_user}}" class="atag">{{ p.nombre }} {{ p.apellido }}</a>
+                <a routerLink="/alumnos/profile/{{p.Id_representante_alumno}}/{{p.Id_user}}" class="atag">{{ p.Nombre }} {{ p.Apellido }}</a>
             </div>
         </div>
     </ng-container>
