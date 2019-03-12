@@ -16,7 +16,7 @@ export class SedeComponent implements OnInit {
   telefono: string;
   correo: string;
   horario: string;
-  status: string;
+  Status: string;
   grados: string;
 
   constructor() { }

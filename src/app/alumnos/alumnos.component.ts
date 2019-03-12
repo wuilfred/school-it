@@ -27,10 +27,30 @@ export class AlumnosComponent implements OnInit {
         this.userService.checkIdSchool().then(response => {
            this.authService.getStatus().subscribe(
                 (user)=>{
+                    let obj_alum, obj, alldataalum;
                     this.un = this.userService.getAllAlumnos(response).valueChanges().subscribe(
                         (alumnos)=>{
-                            this.alumnos = alumnos;
-                            console.log(alumnos);
+                            new Promise((resolve, reject) => {
+                            for (let i = 0; i < alumnos.length; i++) {
+                                obj_alum = alumnos[i][Object.keys(alumnos[i])[0]];
+                                obj = {
+                                    idt: obj_alum.Id_representante_alumno,
+                                    uid: obj_alum.Id_alumno
+                                };
+                                this.userService.getAlumno(obj).valueChanges().subscribe(
+                                (alumno: any[]) => {
+                                    console.log('user add', alumno);
+                                    alldataalum = alumnos[i][Object.keys(alumnos[i])[0]];
+                                    alldataalum.Id_user = obj_alum.Id_alumno;
+                                    alumnos[i] = Object.assign(alumno, alldataalum);
+                                    delete alumnos[i][Object.keys(alumnos[i])[0]];
+                                    resolve();
+                                });
+                            }
+                            }).then (() => {
+                                this.alumnos = alumnos;
+                                console.log(alumnos);   
+                            });
                         }
                     );
                 }

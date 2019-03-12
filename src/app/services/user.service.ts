@@ -93,7 +93,7 @@ export class UserService {
     }
 
     createSolicitud(avi){
-        return this.angularFireDb.object(`solicitud/${avi.id_colegio}/${avi.id_user}`).set(avi);
+        return this.angularFireDb.object(`solicitud/${avi.Id_colegio}/${avi.Id_user}`).set(avi);
     }
 
     createTarea(obj){
@@ -187,7 +187,8 @@ export class UserService {
     }
 
     createAsign(obj){
-        return this.angularFireDb.object(`asignacion_${obj.role}_colegio/${obj.id_representante}/${obj.id_user}`).set(obj);
+        console.log('createasign', obj);
+        return this.angularFireDb.object(`asignacion_${obj.Role}_colegio/${obj.Id_representante}/${obj.Id_user}`).set(obj);
     }
 
     createTutor(obj){
