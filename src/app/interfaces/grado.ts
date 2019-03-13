@@ -1,5 +1,5 @@
 export interface Grados{
-    nombre: string,
+    Nombre: string,
     id: string,
     id_representante: string;
     edad_maxima: string;
