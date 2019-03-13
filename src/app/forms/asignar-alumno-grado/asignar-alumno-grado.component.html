@@ -6,7 +6,7 @@
     <select (change)="ert($event.target.value)">
       <option value="" selected disabled>Grado</option>
       <ng-container *ngFor="let g of grados">
-        <option value="{{g.id}}">{{g.nombre}}</option>
+        <option value="{{g.Id}}">{{g.Nombre}}</option>
       </ng-container>
     </select>
     <a (click)="AssignMG(iddd)">Asignar</a>

@@ -8,6 +8,7 @@ import {AuthenticationService} from "../services/authentication.service";
 import {Maestro} from "../interfaces/maestro";
 import {Colegio} from "../interfaces/colegio";
 import {Tarea} from "../interfaces/tarea";
+import {MatDialog} from '@angular/material';
 
 @Component({
     selector: 'app-gradosdetail',
@@ -29,40 +30,44 @@ export class GradosdetailComponent implements OnInit {
 
     constructor(public activatedRoute: ActivatedRoute,
                 public userService: UserService,
-                public authService: AuthenticationService) {
+                public authService: AuthenticationService,
+                public dialog: MatDialog) {
         this.grd = this.activatedRoute.snapshot.params['grd'];
         this.authService.getStatus().subscribe(
             (user)=>{
-                const g = {
-                    'uid': user.uid,
-                    'grd': this.grd
-                }
-                const idD = {
-                    'grado': this.grd,
-                    'colegio' : user.uid
-                }
-                console.log(g);
-                this.userService.getTareas(idD).valueChanges().subscribe(
-                    (tarea: Tarea[])=>{
-                        console.log(tarea);
-                        this.tareas = tarea;
-                    },
-                    err=>{
-                        console.log(err);
+                this.userService.checkIdSchool().then(response => {
+                    const g = {
+                        'uid': user.uid,
+                        'grd': this.grd,
+                        'Id_colegio': response
                     }
-                );
-                this.userService.getMastersG(g).valueChanges().subscribe(
-                    (masters) => {
-                        console.log(masters);
-                        this.master = masters;
+                    const idD = {
+                        'grado': this.grd,
+                        'colegio' : user.uid
                     }
-                );
-                this.userService.getAlumnosG(g).valueChanges().subscribe(
-                    (alumnos) => {
-                        console.log(alumnos);
-                        this.alumnos = alumnos;
-                    }
-                );
+                    console.log(g);
+                    this.userService.getTareas(idD).valueChanges().subscribe(
+                        (tarea: Tarea[])=>{
+                            console.log(tarea);
+                            this.tareas = tarea;
+                        },
+                        err=>{
+                            console.log(err);
+                        }
+                    );
+                    this.userService.getMastersG(g).valueChanges().subscribe(
+                        (masters) => {
+                            console.log(masters);
+                            this.master = masters;
+                        }
+                    );
+                    this.userService.getAlumnosG(g).valueChanges().subscribe(
+                        (alumnos) => {
+                            console.log(alumnos);
+                            this.alumnos = alumnos;
+                        }
+                    );
+                });
             }
         );
     }

@@ -1,11 +1,11 @@
 <mat-toolbar class="app-toolbar">
     <span>{{ title }}</span>
     <ng-container *ngIf="user">
-        <div class="options" *ngIf="user.Id_colegio == uid">
+        <!-- <div class="options" *ngIf="user.Id_colegio == uid"> -->
             <i class="fas fa-plus" *ngIf="user" (click)="openDialog(user)"></i>
-        </div>
+        <!-- </div> -->
     </ng-container>
-</mat-toolbar>
+</mat-toolbar>  
 <div class="" *ngIf="user">
     <div class="user-container">
         <div class="user">

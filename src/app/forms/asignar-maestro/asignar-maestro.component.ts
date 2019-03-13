@@ -53,7 +53,7 @@ export class AsignarMaestroComponent implements OnInit {
         this.userService.getSGrado(g).valueChanges().subscribe(
             (data: Grados)=>{
                 console.log(data);
-                this.asd = data.nombre;
+                this.asd = data.Nombre;
             }
         );
     }
