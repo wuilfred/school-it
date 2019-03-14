@@ -63,6 +63,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AvisosComponent } from './avisos/avisos.component';
+import { SedesComponent } from './sedes/sedes.component';
+import {MatCardModule} from '@angular/material/card';
+import { TareaComponent } from './tarea/tarea.component';
 
 
 const appRoutes: Routes = [
@@ -93,8 +96,8 @@ const appRoutes: Routes = [
     {path: 'grados/list', component: GradosmComponent, canActivate: [AuthenticationGuard]},
     {path: 'solicitudes/sc', component: SolicitudesScComponent, canActivate: [AuthenticationGuard]},
 
-    {path: 'sede', component: SedeComponent, canActivate: [AuthenticationGuard]},
-    {path: 'tareas', component: TareasComponent, canActivate: [AuthenticationGuard]},
+    {path: 'sedes', component: SedesComponent, canActivate: [AuthenticationGuard]},
+    {path: 'tareas', component: TareaComponent, canActivate: [AuthenticationGuard]},
     {path: 'diario', component: DiarioComponent, canActivate: [AuthenticationGuard]},
     {path: 'aviso', component: AvisosComponent, canActivate: [AuthenticationGuard]}
 
@@ -146,7 +149,9 @@ const appRoutes: Routes = [
     DiarioComponent,
     SchoolProfileComponent,
     DisableSectionComponent,
-    AvisosComponent
+    AvisosComponent,
+    SedesComponent,
+    TareaComponent
   ],
   imports: [
     BrowserModule,
@@ -160,7 +165,8 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-    MaterialModule
+    MaterialModule,
+    MatCardModule
   ],
   entryComponents: [
       GradoFormComponent,
@@ -181,7 +187,8 @@ const appRoutes: Routes = [
       SeccionesComponent,
       SeccionFormComponent,
       DisableSectionComponent,
-      AvisosComponent
+      AvisosComponent,
+      TareasComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
