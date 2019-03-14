@@ -1,0 +1,25 @@
+
+  .app-toolbar {
+    position: sticky;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+    max-width: 70vw;
+  }
+
+  .options{
+    p{
+      display: inline-block !important;
+      &:first-child{
+        margin-right: 0.9em;
+      }
+    }
+  }
+
+  mat-card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em 0;
+    justify-items: center;
+  }

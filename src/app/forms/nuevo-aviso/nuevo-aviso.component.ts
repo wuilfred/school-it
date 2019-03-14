@@ -29,12 +29,16 @@ export class NuevoAvisoComponent implements OnInit {
     headquarters : any[];
     matters : any[];
     sections:  any[];
+    status : number = 1;
+    colid;
 
     gradeControl = new FormControl('', [Validators.required]);
     teacherControl = new FormControl('', [Validators.required]);
     matterControl = new FormControl('', [Validators.required]);
     sectionControl = new FormControl('', [Validators.required]);
     headquartersControl = new FormControl('', [Validators.required]);
+
+    seleccionada;
 
     getIdColegio = localStorage.getItem('idinstitucion');
 
@@ -46,7 +50,7 @@ export class NuevoAvisoComponent implements OnInit {
                 this.authService.getStatus().subscribe(
                     (user)=>{
                         this.user = user;
-                        this.userService.getColegioo(this.user.uid).valueChanges().subscribe(
+                        /*this.userService.getColegioo(this.user.uid).valueChanges().subscribe(
                             (colegio: any[])=>{
                                 colegio.forEach(
                                     (data)=>{
@@ -54,17 +58,17 @@ export class NuevoAvisoComponent implements OnInit {
                                     }
                                 );
                             }
-                        );
+                        );*/
                         
-                        this.userService.getGrado(this.user.uid).valueChanges().subscribe(
-                            (grado: any[]) => {
-                              grado.forEach(
-                                (data) => {
-                                  this.degrees = [data];
-                                }
-                              );
+                        this.userService.checkIdSchool().then(response => {
+                                this.colegio = response;
+                                this.colid = this.userService.getGrado(response).valueChanges().subscribe(
+                                    (grado: Grados[]) => {
+                                        this.degrees = grado;
+                                    }
+                                );
                             }
-                          );
+                        );  
 
                         this.userService.getMaestrosA(this.getIdColegio).valueChanges().subscribe(
                             (asigMaestroColegio) => {
@@ -78,14 +82,12 @@ export class NuevoAvisoComponent implements OnInit {
                                     (rs) => {
                                       this.userService.getMaterias(rs.Id_colegio).valueChanges().subscribe(
                                         (materia) => {
-                                          //console.log(materia)
                                           this.matters = materia;
                                         }
                                       );
                   
                                       this.userService.getMaestro(rs.Id_maestro).valueChanges().subscribe(
                                         (maestro) => {
-                                            //console.log(maestro)
                                           this.teachers = [maestro];
                                         }
                                       );
@@ -107,31 +109,34 @@ export class NuevoAvisoComponent implements OnInit {
                               );
                             }
                           );    
-
                     }
                 );
+        this.print();
+    }
+
+    print () {
+      console.log(this.sections);
     }
 
     createAviso(){
-        
         const aviso = {
                 id:this.db.createPushId(),
                 Content:this.descripcion,
-                Grado:this.gradeControl.value.nombre,
-                Id_colegio:this.colegio.id,
-                Id_grado:this.gradeControl.value.id,
+                Grado:this.gradeControl.value.Nombre,
+                Id_colegio:this.colegio,
+                Id_grado:this.gradeControl.value.Id,
                 Id_maestro:this.teacherControl.value.Id_maestro,
-                Id_materia:'GENERAL',
+                Id_materia:this.matterControl.value.Id,
                 Id_representante:this.user.uid,
                 Id_seccion:this.sectionControl.value.Id,
                 Id_sede:this.headquartersControl.value.Id_colegio,
                 Id_usuario:this.user.uid,
                 IsVisible:false,
                 Maestro:this.teacherControl.value.Nombre+" "+this.teacherControl.value.Apellido,
-                Materia:'General',
+                Materia:this.matterControl.value.Nombre,
                 Seccion:this.sectionControl.value.Nombre,
                 Sede:this.headquartersControl.value.Nombre,
-                Status:"1",
+                Status:this.status,
                 Timestamp:Date.now(),
                 Titulo: this.titulo
         }
@@ -147,6 +152,7 @@ export class NuevoAvisoComponent implements OnInit {
     }
 
     ngOnInit() {
+      
     }
 
 }

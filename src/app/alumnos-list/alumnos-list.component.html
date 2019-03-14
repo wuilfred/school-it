@@ -11,16 +11,16 @@
         <div class="user-s">
             <div class="img-profile">
                 <img src="{{'assets/img/School_defult.jpg'}}" alt="" width="30">
-                <p class="bluee" routerLink="/alumno/profile/{{ty.id_tutor}}/{{ty.id_alumno}}">{{ty.nombre}} {{ty.apellido}} </p>
+                <p class="bluee" routerLink="/alumno/profile/{{ty.id_tutor}}/{{ty.id_alumno}}">{{ty.Nombre}} {{ty.Apellido}} </p>
                 <p>
-                    <small> {{ty.role}}</small>
+                    <small> {{ty.Role}}</small>
                 </p>
             </div>
         </div>
 
         <div class="options">
             <p *ngIf="!ty.id_colegio" (click)="asignarColegio(ty)">Asignar Colegio</p>
-            <p *ngIf="ty.id_colegio" routerLink="/alumno/grado/{{ty.id_colegio}}/{{ty.id_grado}}">ver</p>
+            <p *ngIf="ty.id_colegio" routerLink="/alumno/grado/{{ty.Id_colegio}}/{{ty.Id_grado}}">ver</p>
         </div>
 
     </mat-card>

@@ -49,14 +49,17 @@ export class SolicitudesComponent implements OnInit {
     }
 
     assign(asi){
+        asi.Status_solicitud = "aceptado";
+        asi.Status = "1";
         this.userService.createAsign(asi).then(
             (s)=>{
                 console.log(s);
                 if(asi.role == 'alumno'){
                     const alumnoRoute = {
-                        'id': asi.id_t,
-                        'id_colegio': this.uid,
-                        'id_alumno': asi.id_user,
+                        // 'Rand': this.db.createPushId(),
+                        'Id': asi.Id_t,
+                        'Id_colegio': this.uid,
+                        'Id_alumno': asi.Id_user,
                     }
                     this.userService.updateAlm(alumnoRoute).then(
                         (alumno)=>{

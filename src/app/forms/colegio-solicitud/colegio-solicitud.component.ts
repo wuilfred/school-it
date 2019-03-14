@@ -49,12 +49,12 @@ export class ColegioSolicitudComponent implements OnInit {
                     const nom = [this.alumno.nombre, this.data.apellido];
                     const nombre = nom.join(' ');
                     const solicitud = {
-                        'id_user': this.alumno.id_alumno,
-                        'id_t': this.usuario,
-                        'nombre': nombre,
-                        'id_colegio': this.colegio2.Id,
-                        'id_representante': this.colegio2.Id_representante,
-                        'role': this.data.role
+                        'Id_user': this.alumno.id_alumno,
+                        'Id_t': this.usuario,
+                        'Nombre': nombre,
+                        'Id_colegio': this.colegio2.Id,
+                        'Id_representante': this.colegio2.Id_representante,
+                        'Role': this.data.role
                     }
                     this.userService.createSolicitud(solicitud).then(
                         (ss)=>{

@@ -15,7 +15,7 @@ export class SeccionFormComponent implements OnInit {
     nombre: string;
     descripcion : string;
     r;
-    status = 1;
+    status : number = 1;
     colegio;
     sub;
 
@@ -51,7 +51,7 @@ export class SeccionFormComponent implements OnInit {
             ,Id_representante:this.r.uid
             ,Id_usuario:this.r.uid
             ,Nombre:this.nombre
-            ,Status:this.status
+            ,Status: this.status+0
             ,Timestamp: Date.now()
         }
         

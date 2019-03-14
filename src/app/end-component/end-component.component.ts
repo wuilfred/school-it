@@ -29,11 +29,9 @@ export class EndComponentComponent implements OnInit {
                             (data)=>{
                                 this.userService.getAvisos(data.id).valueChanges().subscribe(
                                     (aviso) => {
-                                        aviso.forEach(element => {
-                                            for (let prop in element) {
-                                                this.aviso = [element[prop]];
-                                            }
-                                        }); 
+                                        aviso.forEach(function(value,key){
+                                            this.aviso = this.returnArray(value);
+                                          }.bind(this));
                                     }
                                 );
                             }
@@ -51,5 +49,14 @@ export class EndComponentComponent implements OnInit {
         console.log('grados destoryed');
         this.sub.unsubscribe();
     }
+
+    returnArray(array){
+        var temp = [];
+          for (let prop in array) {
+            temp.push(array[prop]);
+          };
+          console.log(temp);
+          return temp;
+    } 
 
 }

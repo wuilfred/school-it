@@ -2,7 +2,7 @@
     <span><img src="assets/img/schoolit-logo.svg" alt="" width="135"></span>
 </mat-toolbar>
 <div class="avisos-container">
-    <p *ngIf="aviso == null || aviso == ''">No hay avisos</p>
+    <p *ngIf="!aviso">No hay avisos</p>
     <mat-accordion *ngIf="aviso">
         <br><small>Avisos</small>
         <ng-container *ngFor="let m of aviso">

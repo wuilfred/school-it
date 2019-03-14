@@ -93,7 +93,7 @@ export class UserService {
     }
 
     createSolicitud(avi){
-        return this.angularFireDb.object(`solicitud/${avi.id_colegio}/${avi.id_user}`).set(avi);
+        return this.angularFireDb.object(`solicitud/${avi.Id_colegio}/${avi.Id_user}`).set(avi);
     }
 
     createTarea(obj){
@@ -187,7 +187,8 @@ export class UserService {
     }
 
     createAsign(obj){
-        return this.angularFireDb.object(`asignacion_${obj.role}_colegio/${obj.id_representante}/${obj.id_user}`).set(obj);
+        console.log('createasign', obj);
+        return this.angularFireDb.object(`asignacion_${obj.Role}_colegio/${obj.Id_representante}/${obj.Id_user}`).set(obj);
     }
 
     createTutor(obj){
@@ -199,7 +200,8 @@ export class UserService {
     }
 
     asignAGrado(obj){
-        return this.angularFireDb.object(`asignacion_alumno_grado/${obj.id_representante}/${obj.id_grado}/${obj.id_alumno}`).set(obj);
+        console.log('Assign set grado is:', obj);
+        return this.angularFireDb.object(`asignacion_alumno_grado/${obj.Id_colegio}/${obj.Id_grado}/${obj.id_alumno}`).set(obj);
     }
 
     asignMGList(obj){
@@ -215,7 +217,8 @@ export class UserService {
     }
 
     getAlumnosG(obj){
-        return this.angularFireDb.list(`asignacion_alumno_grado/${obj.uid}/${obj.grd}`);
+        console.log('Obj get alumnos to grade', obj);
+        return this.angularFireDb.list(`asignacion_alumno_grado/${obj.Id_colegio}/${obj.grd}`);
     }
 
     createAlumno(obj){
@@ -246,6 +249,7 @@ export class UserService {
     }
 
     getSGrado(obj){
+        console.log('get s grado', obj);
         return this.angularFireDb.object(`grado/${obj.uid}/${obj.grd}`);
     }
 
