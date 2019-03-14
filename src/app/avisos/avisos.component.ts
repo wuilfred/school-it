@@ -29,7 +29,7 @@ export class AvisosComponent implements OnInit {
           this.colid = this.userService.getAvisos(response).valueChanges().subscribe(
                 (aviso) => {
                    aviso.forEach(function(value,key){
-                     this.avisos = this.returnArray(value);
+                    this.avisos = this.returnArray(value);
                    }.bind(this));
                 }
           ) 
@@ -74,6 +74,16 @@ export class AvisosComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
         console.log('closed');
     });
+  }
+
+  off(obj): void{
+      const dialogRef = this.dialog.open(NuevoAvisoComponent, {
+        panelClass: ['modal-border', 'modal-color1'],
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+          console.log('closed');
+      });
   }
 
 
