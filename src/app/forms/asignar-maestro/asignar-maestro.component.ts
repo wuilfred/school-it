@@ -60,7 +60,7 @@ export class AsignarMaestroComponent implements OnInit {
 
     AssignMG(dd){
         if(dd != null){
-            const name = [this.data.nombre, this.data.apellido];
+            const name = [this.data.Nombre, this.data.Apellido];
             const ll = name.join(' ');
             const asignacion = {
                 'id_maestro' : this.data.uid,

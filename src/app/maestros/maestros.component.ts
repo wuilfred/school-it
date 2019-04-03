@@ -26,7 +26,6 @@ export class MaestrosComponent implements OnInit {
     query: string = '';
     show: boolean;
 
-
     constructor(public maestroService: UserService, public authService: AuthenticationService, public dialog: MatDialog) {
         this.authService.getStatus().subscribe(
             (user) => {
@@ -45,8 +44,29 @@ export class MaestrosComponent implements OnInit {
                 this.maestroService.checkIdSchool().then(response => {
                         this.colid = this.maestroService.getMasters(response).valueChanges().subscribe(
                             (master: Maestro[]) => {
-                                console.log('hola esto es maestros', master);
+
+                            let obj_alum, alldataalum;
+                            new Promise((resolve, reject) => {
+                                for (let i = 0; i < master.length; i++) {
+                                    obj_alum = master[i][Object.keys(master[i])[0]];
+                                    this.maestroService.getMaestro(obj_alum.Id_maestro).valueChanges().subscribe(
+                                    (masters: Maestro[]) => {
+                                        alldataalum = master[i][Object.keys(master[i])[0]];
+                                        alldataalum.Id_user = obj_alum.Id_usuario;
+                                        master[i] = Object.assign(masters, alldataalum);
+                                        delete master[i][Object.keys(master[i])[0]];
+                                        resolve();
+                                    });
+                                }
+                            }).then (() => {
                                 this.maestros = master;
+                                console.log(master);   
+                            });
+
+
+                                // console.log('hola esto es maestros', master);
+                                this.maestros = master;
+                                console.log('Maestros:', master);
                             }
                         );
                     },
