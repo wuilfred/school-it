@@ -2,9 +2,7 @@
   <span>
     <a routerLink="/" class="brand-logo"><img src="assets/img/schoolit-logo.svg" alt="" width="130"></a>
   </span>
-  <div class="options">
-      <i class="fas fa-plus effect" title="Agregar Diario" (click)="openDialog()"></i>
-  </div>
+
 </mat-toolbar>
 <div class="some-padding bc-c sf login">
   <div class="form-container center">
@@ -17,7 +15,7 @@
           <mat-select placeholder="Grado" [formControl]="gradoControl" required>
             <mat-option>--</mat-option>
             <mat-option *ngFor="let grado of DataGrado" [value]="grado">
-              {{grado.descripcion}}
+              {{grado.Nombre}}
             </mat-option>
           </mat-select>
           <mat-error *ngIf="gradoControl.hasError('required')">Please choose an grade</mat-error>

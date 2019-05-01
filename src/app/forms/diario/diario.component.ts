@@ -85,12 +85,13 @@ export class DiarioComponent implements OnInit {
   dataDiario: object;
   info = [];
   infoMa = [];
+  diarios;
 
-  gradoControl = new FormControl('', [Validators.required]);
+  gradoControl   = new FormControl('', [Validators.required]);
   maestroControl = new FormControl('', [Validators.required]);
   materiaControl = new FormControl('', [Validators.required]);
   seccionControl = new FormControl('', [Validators.required]);
-  sedeControl = new FormControl('', [Validators.required]);
+  sedeControl    = new FormControl('', [Validators.required]);
 
   constructor(
     private authService: AuthenticationService, private userService: UserService,
@@ -98,7 +99,7 @@ export class DiarioComponent implements OnInit {
     public dialog: MatDialog
   ) { }
 
-  openDialog(): void {
+  /*openDialog(): void {
     const dialogRef = this.dialog.open(DiarioComponent, {
         panelClass: ['modal-color1'],
     });
@@ -106,7 +107,7 @@ export class DiarioComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
         console.log('closed');
     });
-  }
+  }*/
 
   ngOnInit() {
     this.authService.getStatus().subscribe(
@@ -122,29 +123,33 @@ export class DiarioComponent implements OnInit {
                   );
               }
           );
+          const getIdColegio = localStorage.getItem('idinstitucion');
 
-          this.userService.getGrado(this.user.uid).valueChanges().subscribe(
-            (grado: any[]) => {
-              grado.forEach(
-                (data) => {
-                  this.DataGrado = [data];
-                }
-              );
-            }
-          );
-
-        const getIdColegio = localStorage.getItem('idinstitucion');
+          this.userService.getSede(getIdColegio).valueChanges().subscribe(
+            (diario: any[]) => {
+                console.log(diario);
+                this.diarios = diario;
+              }
+            );
 
         this.userService.getMaestrosA(getIdColegio).valueChanges().subscribe(
           (asigMaestroColegio) => {
             this.info = asigMaestroColegio;
             this.info.forEach(
               (data, key2) => {
+
                 this.DataAsigMaestro = Object.keys(this.info[key2]).map(function(key) {
                  return asigMaestroColegio[key2][key];
                 });
                 this.DataAsigMaestro.forEach(
                   (rs) => {
+
+                    this.userService.getGrado(getIdColegio).valueChanges().subscribe(
+                      (grado) => {
+                        this.DataGrado = grado;
+                      }
+                    );
+
                     this.userService.getMaterias(rs.Id_colegio).valueChanges().subscribe(
                       (materia) => {
                         this.DataMateria = materia;
@@ -160,7 +165,6 @@ export class DiarioComponent implements OnInit {
 
                     this.userService.getSection(rs.Id_colegio).valueChanges().subscribe(
                       (seccione) => {
-                        console.log(seccione);
                         this.DataSeccion = seccione;
                       }
                     );
@@ -184,9 +188,9 @@ export class DiarioComponent implements OnInit {
     this.dataDiario = {
       'Content':        this.contenido,
       'Fecha':          this.Fecha,
-      'Grado':          this.gradoControl.value.descripcion,
+      'Grado':          this.gradoControl.value.Nombre,
       'Id_colegio':     this.sedeControl.value.Id_colegio,
-      'Id_grado':       this.gradoControl.value.id,
+      'Id_grado':       this.gradoControl.value.Id,
       'Id_maestro':     this.maestroControl.value.Id_maestro,
       'Id_materia':     this.materiaControl.value.Id_colegio,
       'Id_representante': this.sedeControl.value.Id_representante,
@@ -202,8 +206,14 @@ export class DiarioComponent implements OnInit {
       'Timestamp':      this.sedeControl.value.Timestamp,
       'Titulo':         this.titulo
     };
-
-
-    console.log(this.dataDiario);
+    this.userService.createDiario(this.dataDiario).then(
+      (success) => {
+          this.dialog.closeAll();
+      }
+  );
   }
+
+  close() {
+    this.dialog.closeAll();
+}
 }

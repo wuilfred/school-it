@@ -175,6 +175,11 @@ export class UserService {
     getTareas(id){
         return this.angularFireDb.list(`tarea/${id.colegio}/${id.grado}`);
     }
+
+    getTarea(id) {
+        return this.angularFireDb.list(`tarea/${id}`);
+    }
+
     getMasters(obj){
         return this.angularFireDb.list(`asignacion_maestro_colegio/${obj}`);
     }
@@ -229,8 +234,12 @@ export class UserService {
         return this.angularFireDb.list(`ListAsignM/${uid}`);
     }
 
-    getDiario(obj){
+    getDiario(obj) {
         return this.angularFireDb.list(`diario/${obj.colegio}/${obj.grado}`, ref => ref.orderByPriority());
+    }
+
+    getDiarios(obj) {
+        return this.angularFireDb.list(`diario/${obj}`);
     }
 
     createDiario(obj){
@@ -256,6 +265,10 @@ export class UserService {
     /**/
     updateInformation (data) {
         return this.angularFireDb.object(`maestros/${data.uid}`).set(data);
+    }
+
+    getSedeColegio (data) {
+        return this.angularFireDb.object(`sede_colegio/${data}`).set(data);
     }
 
     checkIdSchool () {

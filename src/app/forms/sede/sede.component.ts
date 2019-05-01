@@ -38,6 +38,7 @@ export class SedeComponent implements OnInit {
     }
     console.log(dataSede);
   }
+
   ngOnInit() {
   }
 }
