@@ -6,24 +6,25 @@
       <i class="fas fa-plus effect" (click)="openDialogTarea()"></i>
   </div>
 </mat-toolbar>
-
-<mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title> </mat-card-title>
-      <mat-card-subtitle></mat-card-subtitle>
-    </mat-card-header>
-    <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
-    <mat-card-content>
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>Ok</button>
-      <button mat-button>Update</button>
-    </mat-card-actions>
+<div class="app-toolbar some-padding" *ngIf="tarea">
+  <mat-card *ngFor="let tareas of tarea | search: query" >
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title> </mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+      </mat-card-header>
+      <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+      <mat-card-content>
+        <p>{{tareas.Titulo}}</p>
+        <p>{{tareas.Content}}</p>
+        <p>{{tareas.Grado}}</p>
+        <p>{{tareas.Seccion}}</p>
+        <p>{{tareas.Materia}}</p>
+        <p>{{tareas.Maestro}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>Ok</button>
+        <button mat-button>Update</button>
+      </mat-card-actions>
   </mat-card>
+</div>

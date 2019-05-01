@@ -66,7 +66,9 @@ import { AvisosComponent } from './avisos/avisos.component';
 import { SedesComponent } from './sedes/sedes.component';
 import {MatCardModule} from '@angular/material/card';
 import { TareaComponent } from './tarea/tarea.component';
-
+import { DiariosComponent } from './diarios/diarios.component';
+import { ColegioComponent } from './forms/colegio/colegio.component';
+import { ColegiosComponent } from './colegios/colegios.component';
 
 const appRoutes: Routes = [
     {path: 'inicio', component: InicioComponent, canActivate: [AuthenticationGuard]},
@@ -97,8 +99,9 @@ const appRoutes: Routes = [
     {path: 'solicitudes/sc', component: SolicitudesScComponent, canActivate: [AuthenticationGuard]},
 
     {path: 'sedes', component: SedesComponent, canActivate: [AuthenticationGuard]},
+    {path: 'colegios', component: ColegiosComponent, canActivate: [AuthenticationGuard]},
     {path: 'tareas', component: TareaComponent, canActivate: [AuthenticationGuard]},
-    {path: 'diario', component: DiarioComponent, canActivate: [AuthenticationGuard]},
+    {path: 'diario', component: DiariosComponent, canActivate: [AuthenticationGuard]},
     {path: 'aviso', component: AvisosComponent, canActivate: [AuthenticationGuard]}
     ];
 
@@ -150,7 +153,10 @@ const appRoutes: Routes = [
     DisableSectionComponent,
     AvisosComponent,
     SedesComponent,
-    TareaComponent
+    TareaComponent,
+    DiariosComponent,
+    ColegioComponent,
+    ColegiosComponent
   ],
   imports: [
     BrowserModule,
@@ -187,7 +193,11 @@ const appRoutes: Routes = [
       SeccionFormComponent,
       DisableSectionComponent,
       AvisosComponent,
-      TareasComponent
+      TareasComponent,
+      DiariosComponent,
+      DiarioComponent,
+      ColegioComponent,
+      ColegiosComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,6 +15,8 @@ export class TareaComponent implements OnInit {
   title: String = 'Tareas';
   user;
   tarea;
+  info;
+  DataTarea;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -25,10 +27,17 @@ export class TareaComponent implements OnInit {
       const idinstitucion = localStorage.getItem('idinstitucion');
       this.authService.getStatus().subscribe(
         (user) => {
-          this.userService.getTareas(idinstitucion).valueChanges().subscribe(
-            (tarea: any[]) => {
-              console.log(tarea);
-              this.tarea = tarea;
+          this.userService.getTarea(idinstitucion).valueChanges().subscribe(
+            (tarea) => {
+              this.info = tarea;
+              tarea.forEach(
+                (data, key) => {
+                  this.DataTarea = Object.keys(this.info[key]).map(function(key2) {
+                    return tarea[key][key2];
+                   });
+                   this.tarea = this.DataTarea;
+                }
+              );
             }
           );
         }

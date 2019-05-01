@@ -66,4 +66,8 @@ export class SedesComponent implements OnInit {
         });
 
   }
+
+  updateSede() {
+    console.log('hola mundo');
+  }
 }

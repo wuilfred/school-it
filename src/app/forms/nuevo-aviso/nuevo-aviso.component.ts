@@ -22,14 +22,14 @@ export class NuevoAvisoComponent implements OnInit {
     object;
     info = [];
     DataAsigMaestro;
-    grado : string;
-    idGrado : string;
+    grado: string;
+    idGrado: string;
     teachers;
-    degrees : Grados[];
-    headquarters : any[];
-    matters : any[];
+    degrees: Grados[];
+    headquarters: any[];
+    matters: any[];
     sections:  any[];
-    status : number = 1;
+    status: number = 1;
     colid;
 
     gradeControl = new FormControl('', [Validators.required]);
@@ -46,7 +46,6 @@ export class NuevoAvisoComponent implements OnInit {
                 private db: AngularFireDatabase,
                 public dialog: MatDialog,
                 @Inject(MAT_DIALOG_DATA) public data: any) {
-                                                                                 
                 this.authService.getStatus().subscribe(
                     (user)=>{
                         this.user = user;
@@ -59,7 +58,7 @@ export class NuevoAvisoComponent implements OnInit {
                                 );
                             }
                         );*/
-                        
+
                         this.userService.checkIdSchool().then(response => {
                                 this.colegio = response;
                                 this.colid = this.userService.getGrado(response).valueChanges().subscribe(
@@ -68,7 +67,7 @@ export class NuevoAvisoComponent implements OnInit {
                                     }
                                 );
                             }
-                        );  
+                        );
 
                         this.userService.getMaestrosA(this.getIdColegio).valueChanges().subscribe(
                             (asigMaestroColegio) => {
@@ -85,19 +84,19 @@ export class NuevoAvisoComponent implements OnInit {
                                           this.matters = materia;
                                         }
                                       );
-                  
+
                                       this.userService.getMaestro(rs.Id_maestro).valueChanges().subscribe(
                                         (maestro) => {
                                           this.teachers = [maestro];
                                         }
                                       );
-                  
+
                                       this.userService.getSection(rs.Id_colegio).valueChanges().subscribe(
                                         (secciones) => {
                                           this.sections = secciones;
                                         }
                                       );
-                  
+
                                       this.userService.getSede(rs.Id_colegio).valueChanges().subscribe(
                                         (sede) => {
                                            this.headquarters = sede;
@@ -108,7 +107,7 @@ export class NuevoAvisoComponent implements OnInit {
                                 }
                               );
                             }
-                          );    
+                          );
                     }
                 );
         this.print();

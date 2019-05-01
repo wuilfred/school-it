@@ -6,24 +6,25 @@
       <i class="fas fa-plus effect" (click)="openDialog()"></i>
   </div>
 </mat-toolbar>
-
-<mat-card class="example-card" *ngFor="let sedes of sede">
+<div class="app-toolbar some-padding" *ngIf="diarios">
+  <mat-card  *ngFor="let diario of diarios | search: query" >
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{ sedes.Nombre }} </mat-card-title>
-      <mat-card-subtitle>Direccion: {{ sedes.Direccion }}</mat-card-subtitle>
+      <mat-card-title> </mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
     </mat-card-header>
     <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
     <mat-card-content>
-      <p><b>Correo: </b> {{ sedes.Correo }}</p>
-      <p><b>Horario: </b> {{ sedes.Horario }}</p>
-      <p><b>Departamento: </b>{{ sedes.Departamento }}</p>
-      <p><b>Municipio: </b>{{ sedes.Municipio }}</p>
-      <p><b>Telefono: </b>{{ sedes.Telefono }}</p>
-      <p><b>Zona: </b>{{ sedes.Zona }}</p>
+      <p>{{diario.Titulo}}</p>
+      <p>{{diario.Content}}</p>
+      <p>{{diario.Materia}}</p>
+      <p>{{diario.Seccion}}</p>
+      <p>{{diario.Grado}}</p>
+      <p>{{diario.Fecha}}</p>
     </mat-card-content>
     <mat-card-actions>
       <button mat-button>Ok</button>
-      <button mat-button (click)="updateSede()" >Update</button>
+      <button mat-button>Update</button>
     </mat-card-actions>
   </mat-card>
+</div>

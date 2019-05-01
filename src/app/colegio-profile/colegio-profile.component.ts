@@ -23,7 +23,7 @@ export class SchoolProfileComponent implements OnInit {
         this.activatedRoute.params.subscribe(paramsId => {
                 console.log('Paramas parameters get', paramsId);
                 this.userService.getInstiById(paramsId.uid).valueChanges().subscribe(
-                    (data: User[])=>{
+                    (data: User[]) => {
                         this.user = data;
                     }
 
