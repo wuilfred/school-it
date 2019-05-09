@@ -11,19 +11,23 @@ import {AngularFireDatabase} from "@angular/fire/database";
 })
 export class CreateColegioComponent implements OnInit {
 
-    Nombre: string;
-    NombreL: string;
-    Site: string;
-    Mail: string;
+    Nombre_comercial: string;
+    Nombre_legal: string;
+    Web: string;
+    Correo: string;
     Mision: string;
     Vision: string;
-    Direccion: string;
+    Direccion_central: string;
     Telefono: string;
-    Horario: string;
+    Horario_central: string;
     Departamento: string;
     Municipio: string;
     u;
     sub;
+    Foto;
+    status;
+    Zona;
+    timestamp;
 
     constructor( private db: AngularFireDatabase,
                  public us: UserService, public auth: AuthenticationService, public router: Router) {
@@ -38,17 +42,21 @@ export class CreateColegioComponent implements OnInit {
         const colegio = {
             Id: this.db.createPushId(),
             Id_representante: this.u,
-            Nombre_legal: this.Nombre,
-            Nombre_comercial: this.NombreL,
-            Correo: this.Mail,
+            Nombre_legal: this.Nombre_legal,
+            Nombre_comercial: this.Nombre_comercial,
+            Correo: this.Correo,
             Telefono: this.Telefono,
-            Direccion_central: this.Direccion,
+            Direccion_central: this.Direccion_central,
+            Zona: this.Zona,
             Departamento: this.Departamento,
             Municipio: this.Municipio,
             Mision: this.Mision,
-            Horario: this.Horario,
+            Horario_central: this.Horario_central,
             Vision: this.Vision,
-            sitio_web: this.Site
+            Web: this.Web,
+            Url_foto: this.Foto,
+            status: this.status,
+            Timestamp: this.timestamp
         };
         this.us.createSchool(colegio).then(
             (data) => {
