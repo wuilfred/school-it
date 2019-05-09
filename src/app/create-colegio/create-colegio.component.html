@@ -6,15 +6,18 @@
   <div class="form-container center">
     <div class="form">
       <h3>Añadir Colegio</h3>
-      <input [(ngModel)]="Nombre" type="text" placeholder="Nombre Comercial" class="w100">
-      <input [(ngModel)]="NombreL" type="text" placeholder="Nombre Legal" class="w100">
-      <input [(ngModel)]="Direccion" type="text" placeholder="Direccion">
-      <input [(ngModel)]="Mail" type="email" placeholder="colegio@email.com">
-      <input [(ngModel)]="Site" placeholder="sitio web" class="w100">
+      <input [(ngModel)]="Nombre_comercial" type="text" placeholder="Nombre Comercial" class="w100">
+      <input [(ngModel)]="Nombre_legal" type="text" placeholder="Nombre Legal" class="w100">
+      <input [(ngModel)]="Direccion_central" type="text" placeholder="Direccion Central">
+      <input [(ngModel)]="Correo" type="email" placeholder="colegio@email.com">
+      <input [(ngModel)]="Zona" type="text" placeholder="Zona">
+      <input [(ngModel)]="Web" placeholder="sitio web">
       <input [(ngModel)]="Telefono" type="text" placeholder="Numero de contacto">
-      <input [(ngModel)]="Horario" type="text" placeholder="Horario">
+      <input [(ngModel)]="Horario_central" type="text" placeholder="Horario Central">
       <input [(ngModel)]="Departamento" type="text" placeholder="Departamento">
       <input [(ngModel)]="Municipio" type="text" placeholder="Municipio"><br>
+      <mat-checkbox>Status!</mat-checkbox>
+      <input type="file" name="Foto" id="Foto" placeholder="Foto"><br>
       <textarea [(ngModel)]="Mision" cols="10" rows="10" placeholder="Mision"></textarea>
       <textarea [(ngModel)]="Vision" cols="10" rows="10" placeholder="Vision"></textarea>
       <a (click)="createColegio()" class="real-button effect">Crear Colegio</a>
