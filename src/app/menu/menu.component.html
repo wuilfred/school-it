@@ -22,53 +22,58 @@
                 </p>
             </div>
         </div>
-        <ng-container *ngIf="(router.url == '/inicio' || !colegio) && user.Role != 'tutor'">
-            <mat-list-item routerLink="/inicio/">
-                <i class="fas fa-home"></i>
-                <p class="text-b">
-                    {{user.Role == 'colegio' ? 'Instituciones' : 'Inicio'}} {{grd}}
-                </p>
-            </mat-list-item>            <mat-list-item routerLink="/profile/{{user.uid}}">
-                <i class="fas fa-user"></i>
-                <p class="text-b">
-                    Perfil
-                </p>
-            </mat-list-item>
-        </ng-container>
+
+
+
+
         <ng-container *ngIf="user.Role == 'colegio' && router.url != '/inicio'">
             <mat-list-item routerLink="/sedes">
-                <i class="fas fa-user"></i>
+            <img width="25" height="25" src="assets/img/sedes.png">
                 <p class="text-b">
                     Sedes
                 </p>
             </mat-list-item>
 
-            <mat-list-item routerLink="/colegios">
-                <i class="fas fa-user"></i>
-                <p class="text-b">
-                    Colegios
-                </p>
-            </mat-list-item>
 
-
-            <mat-list-item routerLink="/inicio/">
-                <i class="fas fa-home"></i>
-                <p class="text-b">
-                    Inicio {{grd}}
-                </p>
-            </mat-list-item>
             <mat-list-item routerLink="/maestros" >
-                <i class="fas fa-apple-alt text-b"></i>
+              <img width="25" height="25" src="assets/img/maestros.png">
                 <p class="text-b">
                     Maestros
                 </p>
             </mat-list-item>
+
+            <mat-list-item routerLink="/alumnos">
+            <img width="25" height="25" src="assets/img/alumnos.png">
+                <div class="text-b">
+                    Alumnos
+                </div>
+            </mat-list-item>
             <mat-list-item routerLink="/grados">
-                <i class="fas fa-graduation-cap text-b"></i>
+              <img width="25" height="25" src="assets/img/grados.png">
                 <p class="text-b">
                     Grados
                 </p>
             </mat-list-item>
+
+            <mat-list-item routerLink="/materias">
+              <img width="25" height="25" src="assets/img/materias.png">
+                <div class="text-b">
+                    Materias
+                </div>
+            </mat-list-item>
+            <mat-list-item routerLink="/secciones">
+            <img width="25" height="25" src="assets/img/secciones.png">
+                <p class="text-b">
+                    Secciones
+                </p>
+            </mat-list-item>
+            <mat-list-item routerLink="/solicitudes">
+          <img width="25" height="25" src="assets/img/solicitudes.png">
+                <p class="text-b">
+                    Solicitudes
+                </p>
+            </mat-list-item>
+
             <mat-list-item routerLink="/tareas">
                 <i class="fas fa-graduation-cap text-b"></i>
                 <p class="text-b">
@@ -87,31 +92,25 @@
                     Avisos
                 </p>
             </mat-list-item>
-            <mat-list-item routerLink="/secciones">
-                <i class="fas fa-graduation-cap text-b"></i>
+
+
+        </ng-container>
+
+
+        <ng-container *ngIf="(router.url == '/inicio' || !colegio) && user.Role != 'tutor'">
+            <mat-list-item routerLink="/inicio/">
+              <img width="25" height="25" src="assets/img/colegios.png">
                 <p class="text-b">
-                    Secciones
+                    {{user.Role == 'colegio' ? 'Instituciones' : 'Inicio'}} {{grd}}
                 </p>
-            </mat-list-item>
-            <mat-list-item routerLink="/solicitudes">
-                <i class="fas fa-user-check text-b"></i>
+            </mat-list-item>            <mat-list-item routerLink="/profile/{{user.uid}}">
+              <img width="25" height="25" src="assets/img/perfil.png">
                 <p class="text-b">
-                    Solicitudes
+                    Perfil
                 </p>
-            </mat-list-item>
-            <mat-list-item routerLink="/alumnos">
-                <i class="fas fa-child text-b"></i>
-                <div class="text-b">
-                    Alumnos
-                </div>
-            </mat-list-item>
-            <mat-list-item routerLink="/materias">
-                <i class="fas fa-book-open"></i>
-                <div class="text-b">
-                    Materias
-                </div>
             </mat-list-item>
         </ng-container>
+
         <ng-container *ngIf="user.Role == 'maestro' && router.url != '/inicio'">
             <mat-list-item routerLink="/grados/list">
                 <i class="fas fa-graduation-cap text-b"></i>
@@ -136,7 +135,7 @@
         </ng-container>
         <hr class="hr">
         <mat-list-item (click)="logout()">
-            <i class="fas fa-sign-out-alt"></i>
+        <img width="25" height="25" src="assets/img/LogOut.png">
             <div class="text-b">
                 Cerrar Sesión
             </div>

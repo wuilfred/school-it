@@ -6,7 +6,7 @@
   <div class="form-container center">
     <div class="form">
       <h3>Añadir Sede</h3>
-  
+
     <div class="form-body">
       <input [(ngModel)]="nombre"       type="text" placeholder="Nombre"          name="nombre"  />
       <input [(ngModel)]="departamento" type="text" placeholder="Departamento"    name="departamento" />
@@ -16,15 +16,9 @@
       <input [(ngModel)]="telefono"     type="number" placeholder="Telefono"      name="telefono"/>
       <input [(ngModel)]="correo"       type="email" placeholder="colegio@email.com" name="correo"/>
       <input [(ngModel)]="horario"      type="datetime" placeholder="Horario"     name="horario"/>
-      <section class="sede-section">
-          <mat-checkbox
-              class="example-margin"
-              [(ngModel)]="Status">
-              Status
-          </mat-checkbox>
-        </section>
 
-      <a (click)="createSede()" class="real-button effect">Crear Sede</a>
+
+      <a (click)="createSedes()" class="real-button effect">Crear Sede</a>
     </div>
   </div>
 </div>

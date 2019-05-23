@@ -19,8 +19,8 @@ export class SeccionFormComponent implements OnInit {
     colegio;
     sub;
 
-    constructor(private db: AngularFireDatabase, 
-                private auth: AuthenticationService, 
+    constructor(private db: AngularFireDatabase,
+                private auth: AuthenticationService,
                 private userService: UserService,
                 public dialog: MatDialog) {
         this.auth.getStatus().subscribe(
@@ -43,7 +43,7 @@ export class SeccionFormComponent implements OnInit {
     }
 
     createSection(){
-        //create object for send it 
+        //create object for send it
         const section = {
             Id:this.db.createPushId(),
             Descripcion:this.descripcion
@@ -51,10 +51,10 @@ export class SeccionFormComponent implements OnInit {
             ,Id_representante:this.r.uid
             ,Id_usuario:this.r.uid
             ,Nombre:this.nombre
-            ,Status: this.status+0
+            ,Status:"1"
             ,Timestamp: Date.now()
         }
-        
+
         this.userService.createSection(section).then(
             (data) => {
                 this.dialog.closeAll();
@@ -65,8 +65,8 @@ export class SeccionFormComponent implements OnInit {
             }
         );
 
-        
-        
+
+
     }
     close(){
         this.dialog.closeAll();

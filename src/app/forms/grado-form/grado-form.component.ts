@@ -40,7 +40,7 @@ export class GradoFormComponent implements OnInit {
                         'Id': this.uid,
                         'Id_colegio': response,
                         'Status': '1',
-                        'Timestamp': new Date().getTime()  
+                        'Timestamp': new Date().getTime()
                     };
                     this.userService.createGrado(grd).then(
                         (data) => {

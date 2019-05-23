@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from "../../services/user.service";
+import {AuthenticationService} from "../../services/authentication.service";
+import {AngularFireDatabase} from "@angular/fire/database";
+import {MatDialog} from "@angular/material";
 
 @Component({
   selector: 'app-sede',
@@ -18,25 +22,55 @@ export class SedeComponent implements OnInit {
   horario: string;
   Status: string;
   grados: string;
-
-  constructor() { }
-
-  createSede() {
+  colegio;
+    r;
+  constructor(private db: AngularFireDatabase,
+              private auth: AuthenticationService,
+              private userService: UserService,
+              public dialog: MatDialog) {
+      this.auth.getStatus().subscribe(
+          (user)=>{
+              this.r = user;
+              /*this.userService.getColegioo(this.r.uid).valueChanges().subscribe(
+                  (colegio: any[])=>{
+                      colegio.forEach(
+                          (data)=>{
+                              this.colegio = data;
+                          }
+                      );
+                  }
+              );*/
+              this.userService.checkIdSchool().then(response => {
+                  this.colegio = response;
+              });
+          }
+      );
+  }
+  createSedes() {
     const dataSede = {
-      'nombre':       this.nombre === undefined ? 'campo vacio!' : this.nombre,
-      'departamento': this.departamento,
-      'municipio':    this.municipio,
-      'zona':         this.zona,
-      'direccion':    this.direccion,
-      'telefono':     this.telefono,
-      'correo':       this.correo,
-      'horario':      this.horario
-      //'Id_representante': id_representante1,
-      //'id_colegio': id_colegio,
-      //'status': this.status,
-      //'Timestamp': this.timestamp
+    Nombre:       this.nombre === undefined ? 'campo vacio!' : this.nombre,
+      Departamento: this.departamento,
+      Municipio:    this.municipio,
+      Zona:         this.zona,
+      Direccion:    this.direccion,
+      Telefono:     this.telefono,
+      Correo:       this.correo,
+    Horario:      this.horario,
+    Id_colegio: this.colegio,
+Id : this.db.createPushId(),
+    Id_representante:this.r.uid,
+    Status:"1",
+  Timestamp: Date.now()
     }
-    console.log(dataSede);
+    this.userService.createSede(dataSede).then(
+        (data) => {
+          //  this.dialog.closeAll();
+        }
+    ).catch(
+        error =>{
+            console.log(`error al crear secciones ${error}`);
+        }
+    );
   }
 
   ngOnInit() {

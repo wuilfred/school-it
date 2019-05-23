@@ -36,7 +36,7 @@ export class InicioComponent implements OnInit {
     cols: Colegio[];
     mi;
     n: string = null;
-    user: User[];
+    user: string;
     key;
 
     constructor(private authService: AuthenticationService,
@@ -48,6 +48,7 @@ export class InicioComponent implements OnInit {
 
         this.authService.getStatus().subscribe(
             (user) => {
+              this.user=user.uid;
                 this.userService.getURole(user.uid).valueChanges().subscribe(
                     (role: Role) => {
                         if (role.Tipo === 'colegio') {
@@ -74,7 +75,7 @@ export class InicioComponent implements OnInit {
                                         (colegio: Colegio[]) => {
                                             // if (colegio.length == 0) {
                                             //     this.router.navigate(['instituciones']);
-                                            // } 
+                                            // }
                                             console.log(`colegios: ${colegio.length}`);
                                             console.log('JEJE', user);
                                             this.cols = this.colegio = colegio.filter(obj => {

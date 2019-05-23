@@ -22,7 +22,11 @@ export class UserService {
     }
 
     createMateria(obj){
-        return this.angularFireDb.object(`materia/${obj.id_colegio}/${obj.id}`).set(obj);
+        return this.angularFireDb.object(`materia/${obj.Id_colegio}/${obj.Id}`).set(obj);
+    }
+
+    createSede(obj){
+        return this.angularFireDb.object(`sede_colegio/${obj.Id_colegio}/${obj.Id}`).set(obj);
     }
 
     // Remove ${school.id_representante}/
@@ -86,7 +90,7 @@ export class UserService {
 
     /**
      * @returns object colegios
-     * @param uid 
+     * @param uid
      */
     getColegioInfo(uid){
         return this.angularFireDb.object(`colegio/${uid}`);
@@ -184,11 +188,15 @@ export class UserService {
         return this.angularFireDb.list(`asignacion_maestro_colegio/${obj}`);
     }
     getSolicitudes(uid){
-        return this.angularFireDb.list(`solicitud/${uid}`/*, ref => ref.orderByChild('state').equalTo('pendiente')*/);
+        return this.angularFireDb.list(`solicitud_colegio/${uid}`/*, ref => ref.orderByChild('state').equalTo('pendiente')*/);
+    }
+
+    getSolicitudes2(uid,id){
+        return this.angularFireDb.object(`solicitud_colegio/${uid}/${id}`/*, ref => ref.orderByChild('state').equalTo('pendiente')*/);
     }
 
     deleteSolicitud(uid){
-        return this.angularFireDb.object(`solicitud/${uid.uid}/${uid.s}`).remove();
+        return this.angularFireDb.object(`solicitud_colegio/${uid.uid}/${uid.s}`).remove();
     }
 
     createAsign(obj){
@@ -277,7 +285,7 @@ export class UserService {
             setTimeout(() => {
               if (myItem) {
                 resolve(myItem);
-              } else {  
+              } else {
                 alert('No haz seleccionado una institucion');
                reject();
               }

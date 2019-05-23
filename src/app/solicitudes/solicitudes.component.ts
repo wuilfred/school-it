@@ -17,22 +17,29 @@ export class SolicitudesComponent implements OnInit {
     ss;
     uid;
     q;
-
+    info=[];
+DataDiario;
     constructor(private userService: UserService,
                 private authService: AuthenticationService) {
-        this.authService.getStatus().subscribe(
-            (user)=>{
-                this.uid = user.uid;
-                this.userService.checkIdSchool().then(response => {
-                    this.sub = this.userService.getSolicitudes(response).valueChanges().subscribe(
-                        (solicitud)=>{
-                            this.solicitud = solicitud;
-                            console.log(solicitud);
-                        }
-                    );
-                 });
-            }
-        );
+                  const idinstitucion = localStorage.getItem('idinstitucion');
+                  this.authService.getStatus().subscribe(
+                    (user) => {
+                        this.userService.getSolicitudes(idinstitucion).valueChanges().subscribe(
+                          (diario) => {
+                            this.info = diario;
+                            diario.forEach(
+                              (data, key) => {
+                                this.DataDiario = Object.keys(this.info[key]).map(function(key2) {
+                                  return diario[key][key2];
+                                 });
+                                 this.solicitud = this.DataDiario;
+                              }
+                            );
+                          }
+                        );
+                    }
+                  );
+
     }
 
     delete(dd){
@@ -53,8 +60,11 @@ export class SolicitudesComponent implements OnInit {
         asi.Status = "1";
         this.userService.createAsign(asi).then(
             (s)=>{
-                console.log(s);
-                if(asi.role == 'alumno'){
+                //console.log(s);
+
+
+
+                if(asi.Tipo_usuario == 'alumno'){
                     const alumnoRoute = {
                         // 'Rand': this.db.createPushId(),
                         'Id': asi.Id_t,
@@ -63,10 +73,16 @@ export class SolicitudesComponent implements OnInit {
                     }
                     this.userService.updateAlm(alumnoRoute).then(
                         (alumno)=>{
-                            console.log('updated');
+                          //  console.log('updated');
                         }
                     );
                 }
+
+
+
+
+
+
             }
         ).catch(
             (error)=>{

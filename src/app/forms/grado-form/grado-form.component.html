@@ -3,10 +3,11 @@
         <h4>Ingresa un nuevo grado:</h4>
     </div>
     <div class="form-body">
-        <input [(ngModel)]="des" type="text" placeholder="Descripcion">
+        <input [(ngModel)]="nombre" type="text" placeholder="Nombre">
         <input [(ngModel)]="edmx" type="text" placeholder="Edad Maxima">
         <input [(ngModel)]="edmi" type="text" placeholder="Edad Minima">
-        <input [(ngModel)]="nombre" type="text" placeholder="Nombre">
+
+          <input [(ngModel)]="des" type="text" placeholder="Descripcion">
         <input [(ngModel)]="req" type="text" placeholder="Requisitos">
         <a (click)="createGrado()" class="real-button ripple effect">Crear</a>
     </div>

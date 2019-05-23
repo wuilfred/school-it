@@ -6,18 +6,20 @@
     </div>
 </mat-toolbar>
 <div class="solicitudes some-padding" *ngIf="solicitud">
-    <mat-card *ngFor="let ty of solicitud | search: query" >
-        <div class="user-s" *ngIf="ty.Status_solicitud !== 'aceptado'">
+  <div *ngFor="let ty of solicitud | search: query">
+    <mat-card  *ngIf="ty.Estado != 'aceptado'"  >
+        <div class="user-s" *ngIf="ty.Estado != 'aceptado'">
             <div class="img-profile">
                 <img src="{{ty.Url_foto || 'assets/img/School_defult.jpg'}}" alt="" width="30">
-                <h4>{{ty.Nombre}} </h4>
-                <p><small>{{ty.Role}}</small></p>
+                <h4>{{ty.Nombre_usuario}} </h4>
+                <p><small>{{ty.Tipo_usuario}}</small></p>
             </div>
         </div>
 
-        <div class="options" *ngIf="ty.Status_solicitud !== 'aceptado'">
+        <div class="options" *ngIf="ty.Estado != 'aceptado'">
             <a (click)="assign(ty)">Aceptar </a>
             <a (click)="delete(ty.id_user)"> Eliminar</a>
         </div>
     </mat-card>
+    </div>
 </div>

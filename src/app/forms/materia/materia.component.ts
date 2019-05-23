@@ -34,14 +34,14 @@ export class MateriaComponent implements OnInit {
                 'Requisito': "",
                 'Nota': ""
             };
-            this.userService.createMateria(JSON.parse( JSON.stringify(mater))).then(
-                (data)=>{
-                    console.log(`success ${data}`);
-                }
+            this.userService.createMateria(mater).then(
+              (data) => {
+
+              }
             ).catch(
-                (err)=>{
-                    console.log(err);
-                }
+              error =>{
+                  console.log(`error al crear materia ${error}`);
+              }
             );
         });
     }
