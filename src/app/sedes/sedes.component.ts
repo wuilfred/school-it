@@ -58,7 +58,7 @@ export class SedesComponent implements OnInit {
 
   openDialog(): void {
         const dialogRef = this.dialog.open(SedeComponent, {
-          panelClass: ['modal-border', 'modal-color1'],
+            panelClass: ['modal-color1']
         });
 
         dialogRef.afterClosed().subscribe(result => {

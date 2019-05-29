@@ -46,25 +46,19 @@ export class ColegioSolicitudComponent implements OnInit {
             (colegio)=>{
                 this.colegio2 = colegio;
                 if (this.colegio2.Id) {
-                    const nom = [this.alumno.nombre, this.data.apellido];
+                    const nom = [this.alumno.Nombre, this.data.Apellidos];
                     const nombre = nom.join(' ');
                     const solicitud = {
-                        'Id_user': this.alumno.id_alumno,
-                        'Id_t': this.usuario,
-                        'Nombre': nombre,
+                        'Id_alumno': this.alumno.Id,
+                        'Id_representante_alumno': this.usuario,
+                        'Nombre_usuario': nombre,
                         'Id_colegio': this.colegio2.Id,
+                        'Nombre_colegio': this.colegio2.Nombre_comercial,
                         'Id_representante': this.colegio2.Id_representante,
-                        'Role': this.data.role
+                        'Tipo_usuario': "alumno",
+                          'Status': "1",
                     }
-                    this.userService.createSolicitud(solicitud).then(
-                        (ss)=>{
-                            this.dialog.closeAll();
-                        }
-                    ).catch(
-                        (err)=>{
-                            console.log(`error al crear secciones ${err}`);
-                        }
-                    );
+                  console.log(solicitud);
                 } else {
                     alert('Selecciona un colegio');
                 }

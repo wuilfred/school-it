@@ -42,6 +42,8 @@ export class GradoFormComponent implements OnInit {
                         'Status': '1',
                         'Timestamp': new Date().getTime()
                     };
+
+
                     this.userService.createGrado(grd).then(
                         (data) => {
                             console.log(`exito ${data}`);

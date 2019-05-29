@@ -172,6 +172,13 @@ export class UserService {
         return this.angularFireDb.object(`alumno/${obj.id}/${obj.id_alumno}`).update({id_colegio: obj.id_colegio});
     }
 
+    updateSolicitudAlm(obj){
+        return this.angularFireDb.object(`solicitud_colegio/${obj.Id_colegio}/${obj.Id_alumno}/${obj.Id}`).update({Estado: obj.Estado});
+    }
+    updateSolicitudMa(obj){
+        return this.angularFireDb.object(`solicitud_colegio/${obj.Id_colegio}/${obj.Id_maestro}/${obj.Id}`).update({Estado: obj.Estado});
+    }
+
     updateGAlm(obj){
         return this.angularFireDb.object(`alumno/${obj.id}/${obj.id_alumno}`).update({id_grado: obj.id_grado});
     }
@@ -199,9 +206,15 @@ export class UserService {
         return this.angularFireDb.object(`solicitud_colegio/${uid.uid}/${uid.s}`).remove();
     }
 
-    createAsign(obj){
-        console.log('createasign', obj);
-        return this.angularFireDb.object(`asignacion_${obj.Role}_colegio/${obj.Id_representante}/${obj.Id_user}`).set(obj);
+
+
+    createAsign(tipo,obj){
+      //  console.log('createasign', obj);
+        return this.angularFireDb.object(`asignacion_${tipo}_colegio/${obj.Id_colegio}/${obj.Id_alumno}/${obj.Id}`).set(obj);
+    }
+    createAsignD(tipo,obj){
+      //  console.log('createasign', obj);
+        return this.angularFireDb.object(`asignacion_${tipo}_colegio/${obj.Id_colegio}/${obj.Id_maestro}/${obj.Id}`).set(obj);
     }
 
     createTutor(obj){
